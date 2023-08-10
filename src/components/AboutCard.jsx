@@ -1,9 +1,12 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 const AboutCard = () => {
+  const {t} = useTranslation("global");
   return (
     <div>
-        <span>Hi, i'am Ivo Ezequiel Garraza, FullStack Web Developer</span>
+      <h1>About card</h1>
+        <span className='text-white'>{t('presentation')}</span>
     </div>
   )
 }
