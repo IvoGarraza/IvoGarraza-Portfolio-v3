@@ -21,7 +21,8 @@ import Linkedin from "./components/Linkedin";
 import SwitchLanguage from "./components/SwitchLanguage";
 import Spotify from "./components/Spotify";
 import { useState } from "react";
-import {motion} from 'framer-motion'
+import { delay, motion } from "framer-motion";
+import Experience from "./components/Experience";
 
 function App() {
   const [checked, setChecked] = useState(true);
@@ -71,6 +72,8 @@ function App() {
         return <Wather />;
       case "Spotify":
         return <Spotify />;
+      case "Experience":
+        return <Experience />;
       default:
         return null;
     }
@@ -79,14 +82,16 @@ function App() {
   return (
     <I18nextProvider i18n={i18next}>
       <div className="bg-noise fill-black font-montserrat">
-        
         <div className="w-full h-full bg-[rgba(29,34,62,0.91)] py-12 px-24">
           <div className="grid auto-rows-[192px] grid-cols-4 gap-4">
             {componentsToRender.map((component, i) => (
               <motion.div
-              whileHover={{scale:0.95}}
+                whileHover={{ scale: 0.95 }}
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={{duration:0.100}}
                 key={i}
-                className={`row-span-1 rounded-3xl bg-gray-200 ${
+                className={`row-span-1 rounded-xl bg-gray-200 ${
                   i === 0
                     ? "col-span-3 row-span-2"
                     : i === 8 || i === 10 || i === 13

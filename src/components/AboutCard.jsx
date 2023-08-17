@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 const AboutCard = () => {
   const {t} = useTranslation("global");
   return (
-    <div>
-      <h1>About card</h1>
+    <div className='p-6 bg-purple-800 w-full h-full rounded-xl'>
         <span className='text-white'>{t('presentation')}</span>
     </div>
   )

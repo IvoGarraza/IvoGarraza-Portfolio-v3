@@ -13,18 +13,19 @@ export const componentsToRender = [
   "AboutMe",
   "SwitchLanguage",
   "English",
+  "Experience",
   "Age",
   "Email",
   "Github",
   "Blog",
-  "Skills",
   "Projects",
-  "Chat",
+  "Skills",
   "Certifications",
+  "Chat",
   "Discord",
-  "Linkedin",
   "Weather",
-  "Spotify"
+  "Linkedin",
+  "Spotify",
 ];
 
 /* const renderComponent = (componentName) => {

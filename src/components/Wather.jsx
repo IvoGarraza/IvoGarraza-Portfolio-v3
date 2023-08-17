@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+
 
 const Wather = () => {
+  const apikey='2e7b83c0fd1ecefe339529d0524c004f'
+
+
   return (
-    <div>Wather</div>
+    <div>
+      <div>Weather</div>
+    </div>
   )
 }
 
