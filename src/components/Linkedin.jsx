@@ -1,13 +1,14 @@
 import React from 'react'
 import linkedin from '../assets/linkedin.png'
+import { motion } from 'framer-motion'
 
-const Linkedin = () => {
+const Linkedin = ({section}) => {
   return (
-    <div className='w-full h-full items-center bg-noise justify-center rounded-xl'>
-      <div className='w-full h-full bg-[rgba(105,66,160,0.9)] flex rounded-xl items-center justify-center'>
+    <motion.div initial={{opacity:1}} animate={{opacity: ['all','contact'].includes(section)? 1: 0.2}} className='w-full h-full items-center bg-noise justify-center rounded-xl'>
+      <a href='https://www.linkedin.com/in/ivogarraza' className='w-full h-full bg-[#390ca3f0] flex rounded-xl items-center justify-center'>
         <img  className='w-28' src={linkedin}></img>
-      </div>
-    </div>
+      </a>
+    </motion.div>
   )
 }
 

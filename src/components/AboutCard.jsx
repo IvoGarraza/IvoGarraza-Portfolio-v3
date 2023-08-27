@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next';
+import me from '../assets/me2.png'
+import { motion } from 'framer-motion';
+import styles from './../assets/styles/About.module.css'
 
-const AboutCard = () => {
-  const {t} = useTranslation("global");
+
+
+const AboutCard = ({section}) => {
+  const [t,i18n ] = useTranslation("global");
+
+
+
+
   return (
-    <div className='p-6 bg-purple-800 w-full h-full rounded-xl'>
-        <span className='text-white'>{t('presentation')}</span>
-    </div>
+    <motion.div initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}} className='p-6 overflow-hidden bg-purple-800 w-full h-full rounded-xl relative'>
+      <div className={`${styles.water} absolute w-full h-full`}>
+      </div>
+        <span className='text-white text-2xl absolute z-10'>{t('presentation')}</span>
+        {/* <img src={me} className='absolute -top-10 -right-44'></img> */}
+    </motion.div>
   )
 }
 

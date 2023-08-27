@@ -1,3 +1,13 @@
 {
-    "presentation":"Hi, i'm Ivo Garraza, FullStack Web developer "
+    "presentation":"Hi, i'm Ivo Garraza, FullStack Web developer ",
+    "age":{
+        "age":"Age",
+        "old":"YEARS OLD"
+    },
+    "exp":"Experience",
+    "weather":{
+        "temp":"Temperature:",
+        "condition":"Condition:",
+        "time":"Time:"
+    }
 }

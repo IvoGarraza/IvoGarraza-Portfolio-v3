@@ -3,10 +3,11 @@ import map from '../assets/maps.png'
 import map2 from '../assets/map.png'
 import pin from '../assets/pin.png'
 import me from '../assets/me.png'
+import { motion } from 'framer-motion'
 
-const Chat = () => {
+const Map = ({section}) => {
   return (
-    <div className='group w-full h-full bg-center rounded-xl' style={{backgroundImage:`url(${map2})`}}>
+    <motion.div initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}} className='group w-full h-full bg-center rounded-xl' style={{backgroundImage:`url(${map2})`}}>
       <div className='bg-[rgba(0,0,0,0.2)] w-full h-full flex flex-col justify-between'>
         <div className='w-full h-[90%] flex items-center justify-center'>
           <img className='rounded-full border-white border-4 h-24 group-hover:animate-bounce' src={me}></img>
@@ -18,8 +19,8 @@ const Chat = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
-export default Chat
+export default Map

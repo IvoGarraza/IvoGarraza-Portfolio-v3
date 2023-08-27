@@ -1,25 +1,21 @@
 import React from "react";
-import './SwitchLanguaje.css'
+import "./SwitchLanguaje.css";
+import { motion } from "framer-motion";
 
-const SwitchLanguage = ({ checked }) => {
+const SwitchLanguage = ({ checked, section }) => {
   return (
-    <div className="flex flex-col w-full h-full items-center justify-center bg-black rounded-xl">
-      {/*       <label class="relative inline-flex items-center cursor-pointer">
-        <input type="checkbox" value="" class="sr-only peer" checked={checked}/>{}
-        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-          Toggle me
-        </span>
-      </label> */}
-      <h2 className="font-bold mb-4 text-white">DARK MODE</h2>
-      <label class="switch">
-        <input type="checkbox" class="cb" />
-        <span class="toggle">
-          <span class="left">off</span>
-          <span class="right">on</span>
-        </span>
-      </label>
-    </div>
+    <motion.div initial={{opacity:1}} animate={{opacity: ['all'].includes(section)?1:0.2}} className="flex flex-col w-full h-full items-center justify-center bg-noise rounded-xl overflow-hidden">
+      <div className="flex flex-col items-center justify-center  w-full h-full bg-secundario">
+        <h2 className="font-bold mb-4 text-white">DARK MODE</h2>
+        <label class="switch">
+          <input type="checkbox" class="cb" />
+          <span class="toggle">
+            <span class="left">off</span>
+            <span class="right">on</span>
+          </span>
+        </label>
+      </div>
+    </motion.div>
   );
 };
 
