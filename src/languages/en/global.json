@@ -5,6 +5,10 @@
         "old":"YEARS OLD"
     },
     "exp":"Experience",
+    "projects":"Projects & Tests",
+    "eng_level":"English level general",
+    "click":"(click for change language)",
+    "skill":"Some of my skill learn of the time...",
     "weather":{
         "temp":"Temperature:",
         "condition":"Condition:",

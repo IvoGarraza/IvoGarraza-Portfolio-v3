@@ -22,9 +22,9 @@ export const componentsToRender = [
   "Skills",
   "Certifications",
   "Chat",
-  "Discord",
-  "Weather",
   "Linkedin",
+  "Weather",
+  "Discord",
   "Spotify",
 ];
 

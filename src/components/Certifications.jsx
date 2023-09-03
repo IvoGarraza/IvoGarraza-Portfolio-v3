@@ -10,8 +10,7 @@ const Certifications = ({section}) => {
     setIsExploding(true);
   };
   return (
-    <motion.div initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}} className='h-full rounded-xl overflow-hidden bg-noise' onMouseEnter={handleHover}>
-      <div className='flex flex-row items-center justify-around bg-decimo w-full h-full  p-6 font-bold text-black'>
+    <motion.div initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}} className='flex flex-row items-center justify-around bg-noveno w-full h-full p-6 font-bold text-black' onMouseEnter={handleHover}>
       <div className="absolute w-full h-full z-20 left-0 flex justify-center items-center pointer-events-none">
         {isExploding && (
           <ConfettiExplosion
@@ -22,14 +21,14 @@ const Certifications = ({section}) => {
           />
         )}
       </div>
-        <div className='flex flex-col'>
+        <div className='flex flex-col text-white text-sm sm:text-lg'>
           <span>Desarrollador Web FullStack .NET</span>
           <span>Instituto Superior Politecnico de Córdoba</span>
+          <span>(En curso)</span>
         </div>
         <div>
-          <img className='w-24' src={fullstack}/>
+          <img className='sm:w-36 w-24' src={fullstack}/>
         </div>
-      </div>
     </motion.div>
   )
 }

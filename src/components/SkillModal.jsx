@@ -1,6 +1,7 @@
 import React from "react";
 import { logos } from "../assets/logos";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const variantsCard = {
   uno: { scale: 0.8 },
@@ -12,9 +13,11 @@ let transitionDuration= 0.300
 let delayDuration = 0.000
 
 const SkillModal = () => {
+  const {t} = useTranslation("global")
+
   return (
     <div className="bg-white w-11/12 h-5/6 flex flex-col items-center justify-around rounded-xl p-6 relative">
-      <h3 className="font-bold">Some of my skill learn of the time...</h3>
+      <h3 className="font-bold">{t('skill')}</h3>
       <button className="w-8 h-8 absolute top-0 right-0 rounded-full text-red-600 font-bold">X</button>
       <div className="grid grid-cols-4 w-full place-items-center gap-4">
         {logos.map((logo, index) => {
