@@ -1,11 +1,14 @@
 {
-    "presentation":"Estudiante de la Universidad Tecnologica Nacional - Facultad Regional Córdoba y Desarrolador Web Fullstack, apasionado por la tecnologia, el diseño y el aprendizaje para el desarrollo personal y profesional. Me gusta participar en proyectos donde los desafios intelectuales, el trabajo en equipo y las ganas sean fundamentales",
+    "presentation":"Desarrollador Web FullStack, especializado en el desarrollo FrontEnd, estudiante de la carrera de Ingenieria de Sistemas de información. Curioso por la tecnologia y",
     "age":{
         "age":"Edad",
         "old":"AÑOS"
     },
     "exp":"Experiencia",
-    "projects":"Projectos y Pruebas",
+    "projects":{
+        "title":"Projectos y Pruebas",
+        "description":"Algunos de los proyectos y pruebas que realize como desarrollador"
+    },
     "eng_level":"Nivel de Ingles general",
     "click":"(click para cambiar de idioma)",
     "skill":"Algunas de mis habilidades aprendidas en este tiempo...",

@@ -5,7 +5,10 @@
         "old":"YEARS OLD"
     },
     "exp":"Experience",
-    "projects":"Projects & Tests",
+    "projects":{
+        "title":"Projects & Tests",
+        "description":"Algunos de los proyectos y pruebas que realize como desarrollador"
+    },
     "eng_level":"English level general",
     "click":"(click for change language)",
     "skill":"Some of my skill learn of the time...",

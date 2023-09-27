@@ -27,7 +27,7 @@ const Spotify = ({ section }) => {
         <div className="absolute top-3 left-3"> 
           <img className="sm:w-10 w-6" src={spotify}></img>
         </div>
-        <div id="audiovisual" className={`absolute  bottom-0 w-full sm:h-12 h-6 ${styles.audiovisual}`}>
+        <div id="audiovisual" className={`absolute bottom-2  w-1/3 left-2 sm:h-12 h-6 ${styles.audiovisual}`}>
           <div id='botonPlay' >
             <img className="w-6" src={isPlay?pause:play}></img>
           </div>

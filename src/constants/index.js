@@ -2,12 +2,15 @@ import pokemon from '../assets/cardsImages/pokemon.jpg'
 import hoobank from '../assets/cardsImages/hoobank.png'
 import pianobar from '../assets/covers/pianobar.jpg'
 import portafolio from '../assets/cardsImages/portafolio2.png'
+import gea from '../assets/cardsImages/gea.png'
+import rubberducky from '../assets/cardsImages/rubber-ducky.png'
+import countries from '../assets/cardsImages/countries.jpg'
 
 export const projects = [
     {
         id:'portfolio',
-        title: 'Portfolio Web Developer',
-        description:'Aca vas a poder encontrar el codigo de este mismo portafolio creado con React, TailwindCSS y Framer Motion',
+        title: 'Portfolio Web Developer v2',
+        description:'Aca vas a poder encontrar el codigo de mi anterior portafolio creado con React, TailwindCSS y Framer Motion',
         img:'bg-portafolio',
         img:portafolio,
         time:'18/01/2022',
@@ -28,7 +31,7 @@ export const projects = [
         id:'gea',
         title:'GEA',
         description:'Website for a company of geotecnichal studies',
-        img:'bg-gea',
+        img:gea,
         /* avatar:foto, */
         time:'20/11/2022',
         path:'/gea-web'
@@ -38,7 +41,7 @@ export const projects = [
         id:'ducky',
         title:'Rubber Ducky with Arduino',
         description: 'Proyecto de Ciberseguridad - Desarrollo de una unidad USB "Rubber Ducky" con una placa de desarrollo "Arduino UNO"',
-        img:'bg-ducky',
+        img:rubberducky,
         /* avatar:foto, */
         time:'17/07/2022',
         path:'/rubber-ducky-with-arduino'
@@ -68,7 +71,7 @@ export const projects = [
         type:'FullStack Project',
         description: 'Sitio web con todos los paises y descripciones de los mismos, realizado en el bootcamp de desarrollador web. En este proyecto se contruyo una API REST con node.js, para luego ser consumida y construir el frontend con React.js',
         path:'/countries-page',
-        img:'bg-countries'
+        img:countries
     },
 
 ]
