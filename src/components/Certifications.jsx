@@ -23,8 +23,8 @@ const Certifications = ({section}) => {
       </div>
         <div className='flex flex-col text-white text-sm sm:text-lg'>
           <span>Desarrollador Web FullStack .NET</span>
-          <span className='font-medium'>Instituto Superior Politecnico de Córdoba</span>
-          <span className='font-light text-orange-400'>(En curso)</span>
+          <span className='font-normal'>Instituto Superior Politecnico de Córdoba</span>
+          <span className='font-light text-yellow-300'>(En curso)</span>
         </div>
         <div>
           <img className='sm:w-36 w-24' src={fullstack}/>
