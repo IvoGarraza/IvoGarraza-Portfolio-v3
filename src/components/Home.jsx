@@ -27,7 +27,7 @@ const Home = () => {
     const [checked, setChecked] = useState(true);
     const [section, setSection] = useState('all');
   
-    i18next.init({
+/*     i18next.init({
       interpolation: { escapeValue: false }, // Evita la necesidad de escapar contenido
       lng: "en", // Idioma predeterminado
       resources: {
@@ -38,7 +38,7 @@ const Home = () => {
           global: global_es,
         },
       },
-    });
+    }); */
   
     const renderComponent = (componentName, section) => {
       switch (componentName) {
