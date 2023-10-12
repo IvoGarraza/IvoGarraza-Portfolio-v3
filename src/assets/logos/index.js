@@ -10,7 +10,7 @@ import framer from './framer.png'
 import mysql from './mysql.png'
 import photoshop from './photoshop.png'
 
-export const logos = [
+export const logos=[
     html,
     css,
     javascript,
@@ -23,3 +23,17 @@ export const logos = [
     mysql,
     photoshop
 ]
+
+export const logos2 = {
+    html: html,
+    css:css,
+    javascript:javascript,
+    git:git,
+    node:node,
+    react:react,
+    tailwind:tailwind,
+    framer:framer,
+    python:python,
+    mysql:mysql,
+    photoshop:photoshop
+}
