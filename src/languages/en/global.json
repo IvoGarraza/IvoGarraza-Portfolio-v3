@@ -1,5 +1,7 @@
 {
-    "presentation":"Hi, i'm Ivo Garraza, FullStack Web developer ",
+    "saludo":"¡Hi, Welcome to my portfolio!",
+    "nombre":"I'm Ivo Garraza.",
+    "presentation":"Full Stack Web Developer with a specialization in Front-End. I am passionate about technology, design, and continuous learning for my personal and professional growth. I enjoy working on challenging projects with a focus on teamwork and motivation.",
     "age":{
         "age":"Age",
         "old":"YEARS OLD"

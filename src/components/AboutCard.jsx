@@ -17,7 +17,9 @@ const AboutCard = ({section}) => {
       <div className={`${styles.water} absolute w-full h-full`}>
       </div>
         <div className='flex flex-col absolute z-10'>
-          <span className='text-white font-bold text-4xl mb-2'>👋 Hola, soy Ivo Garraza </span>
+          <span className='text-white font-bold text-4xl mb-2'>{t('saludo')}👋</span>
+          <br/>
+          <span className='text-white font-bold text-2xl'>{t('nombre')}</span>
           <span className='text-white w-[70%] text-2xl z-10'>{t('presentation')}</span>
         </div>
         <img src={me} className='absolute -top-10 -right-44'></img>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import spotify from "../assets/spotify.png";
 import { motion } from "framer-motion";
 import styles from "../assets/styles/Spotify.module.css";
@@ -9,6 +9,10 @@ import { music } from "../constants";
 
 const Spotify = ({ section }) => {
   const [isPlay, setIsPlay ] = useState(false) 
+
+  useEffect(() => {
+    document.getElementById("music").volume = 0.5;
+  }, []);
 
   return (
     <motion.div
@@ -46,6 +50,7 @@ const Spotify = ({ section }) => {
           <div className={styles.audiowire} id="audio4"></div>
           
         </div>
+        <audio  id="music" ></audio>
   
     </motion.div>
   );

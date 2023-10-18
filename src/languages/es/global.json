@@ -1,5 +1,7 @@
 {
-    "presentation":"Desarrollador Web FullStack, especializado en el desarrollo FrontEnd, estudiante de la carrera de Ingenieria de Sistemas de información. Curioso por la tecnologia y",
+    "saludo":"¡Hola, Bienvenido a mi portafolio!",
+    "nombre":"Soy Ivo Garraza.",
+    "presentation":"Desarrollador Web Full Stack con especialidad en Front-End. Me apasiona la tecnología, el diseño y el aprendizaje constante para mi desarrollo personal y profesional. Me gusta trabajar en proyectos desafiantes con enfoque en el trabajo en equipo y la motivación.",
     "age":{
         "age":"Edad",
         "old":"AÑOS"

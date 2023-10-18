@@ -14,18 +14,38 @@ export const projects = [
         id:'andes-dean',
         title:'AndesDean Engineering Studio',
         description:'Sitio Web para el estudio de ingenieria civil Andes Dean',
+        descripcionLarga:'Este sitio web realizado para el estudio de ingenieria civil AndesDean, este proyecto empezo en una etapa inicial realizado en Google Sites, despues de ser revisado y aprovado por el dueño, se inicio la "migracion" a un desarrollo de web completo con React y algunos framework de stilos como TailwindCSS y para las animaciones Framer-Motion',
         img:andes,
         time:'05/2023',
         boton:'Ver',
-        tec: ['html','css']
+        tec: ['html','css'],
+        link:'https://andesdean.onrender.com',
+        repositorio:'https://github.com/IvoGarraza/AndesDean-WebSite'
     },
     {
         id:'tres-dimensiones',
         title:'Tres Dimensiones',
         description:'Ecommerce para ventas de productos impresos en 3D e insumos para impresoras',
         img:tresdimensiones,
-        boton:'Ver'
+        boton:'Ver',
+        link:'',
+        repositorio:'https://github.com/IvoGarraza/Tres-Dimensiones-v2.0'
 
+    },
+    {
+        id:'tres-dimensiones-API',
+        title:'API Tres Dimensiones',
+        description:'API para el ecommerce Tres Dimensiones',
+        img:tresdimensiones,
+        boton:'Ver',
+        repositorio:'https://github.com/IvoGarraza/TresDimensiones-Strapi-Render'
+    },
+    {
+        id:'camuzzi',
+        title:'Sistemas de registro incidentes para Camuzzi',
+        description:'Sistemas de registro de incidentes laborales para la empresa de gas natural de Camuzzi. Este sistemas se realizo con el equipo de Ubicuo, integrando la plataforma ya existente con su base de datos y diseñando un sistema exclusivos',
+        img:'',
+        boton:'Ver'
     },
     {
         id:'portfolio',
@@ -34,8 +54,9 @@ export const projects = [
         img:'bg-portafolio',
         img:portafolio,
         time:'18/01/2022',
-        link:'https://github.com/IvoGarraza/Personal-Portfolio---Full-Stack-Web-Developer',
-        boton:'Ver'
+        repositorio:'https://github.com/IvoGarraza/Personal-Portfolio---Full-Stack-Web-Developer',
+        boton:'Ver',
+        link:'https://calm-kangaroo-be7b3c.netlify.app/'
 
     },
     {
@@ -46,10 +67,11 @@ export const projects = [
         /* avatar:foto, */
         time:'20/11/2022',
         path:'/gea-web',
+        repositorio:'https://github.com/IvoGarraza/gea-web',
         boton:'Ver'
     },
     {
-        id:'ducky',
+        id:'web-scraping',
         title:'Web Scrapping con Python',
         description: 'Proyecto de Web Scraping con Python para recopilar potenciales clientes',
         img:rubberducky,
