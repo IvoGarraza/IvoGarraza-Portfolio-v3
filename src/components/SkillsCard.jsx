@@ -14,7 +14,7 @@ const SkillsCard = ({section}) => {
 
   return (
     <motion.div
-    initial={{/* opacity:1, */ scale:0}} animate={{/* opacity: ['all','about'].includes(section)?1:0.2, */ scale:1}}
+    initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}}
       className="flex w-full h-full items-center bg-terciario justify-center cursor-pointer rounded-xl"
       onClick={handleClick}
      

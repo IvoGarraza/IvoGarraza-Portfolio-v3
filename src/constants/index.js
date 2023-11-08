@@ -132,3 +132,21 @@ export const music = [
     },
     
 ]
+
+export const certifications = [
+    {
+        title:'Desarrollador Web FullStack .NET',
+        institucion:'Instituto Superior Politecnico de Córdoba',
+        estado:'(Finalizado)'
+    },
+    {
+        title:'Desarrollo Web FullStack',
+        institucion:'SoyHenry',
+        estado:'(Finalizado)'
+    },
+    {
+        title:'Ing en Sistemas de Informacion',
+        institucion:'Universidad Tecnologica Nacional',
+        estado:'(En curso)'
+    }
+]

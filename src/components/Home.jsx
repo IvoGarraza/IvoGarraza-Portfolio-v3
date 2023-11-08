@@ -84,7 +84,7 @@ const Home = () => {
         <Navbar setSection={setSection} section={section}></Navbar>
        {/*  <div className="bg-noise fill-black font-montserrat"> */}
         <div className='fixed w-full h-[100vh] opacity-[.04] pointer-events-none bg-noise z-50'></div> 
-          <div className="w-full h-full bg-[rgba(23,26,48,0.95)] pt-24 pb-8 sm:px-24 px-4">
+          <div className="w-full h-full bg-[rgba(9,10,19,0.95)] pt-24 pb-8 sm:px-24 px-4">
             <div className="grid sm:auto-rows-[224px] auto-rows-[136px] sm:grid-cols-4 grid-cols-2 gap-4">
               {componentsToRender.map((component,i) => (
                 

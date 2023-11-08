@@ -18,7 +18,7 @@ const Spotify = ({ section }) => {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: ["all"].includes(section) ? 1 : 0.2 }}
-      className="relative w-full h-full flex items-center justify-center rounded-xl bg-[#480ca8ee] "
+      className="relative w-full h-full flex items-center justify-center rounded-xl bg-[#480ca8ee] cursor-pointer"
       onClick={()=>(setIsPlay(!isPlay))}
     >
      
@@ -35,19 +35,19 @@ const Spotify = ({ section }) => {
           <div id='botonPlay' >
             <img className="w-6" src={isPlay?pause:play}></img>
           </div>
-          <div className={styles.audiowire} id="audio1"></div>
-          <div className={styles.audiowire} id="audio2"></div>
-          <div className={styles.audiowire} id="audio3"></div>
-          <div className={styles.audiowire} id="audio4"></div>
-          <div className={styles.audiowire} id="audio5"></div>
-          <div className={styles.audiowire} id="audio6"></div>
-          <div className={styles.audiowire} id="audio7"></div>
-          <div className={styles.audiowire} id="audio8"></div>
-          <div className={styles.audiowire} id="audio9"></div>
-          <div className={styles.audiowire} id="audio1"></div>
-          <div className={styles.audiowire} id="audio2"></div>
-          <div className={styles.audiowire} id="audio3"></div>
-          <div className={styles.audiowire} id="audio4"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio1"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio2"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio3"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio4"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio5"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio6"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio7"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio8"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio9"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio1"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio2"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio3"></div>
+          <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio4"></div>
           
         </div>
         <audio  id="music" ></audio>

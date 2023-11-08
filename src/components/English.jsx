@@ -9,7 +9,8 @@ const English = ({ section }) => {
   const [language, setLanguage] = useState("en");
   const [checked, setChecked] = useState(false)
 
-  const toggleLanguage = () => {
+  const toggleLanguage = (e) => {
+    e.stopPropagation();
     if (language === "en") {
       setLanguage("es");
       i18n.changeLanguage("es");
@@ -35,12 +36,12 @@ const English = ({ section }) => {
         {/*           <span className={`mx-1 ${language==="es" ?'text-white':'text-black'}`}>ES</span>
           <span className={`mx-1 ${language==="en"?'text-white':'text-black'}`}>EN</span> */}
         <div className="relative w-full ">
-          <div class="container" onClick={toggleLanguage}>
-            <input type="checkbox" name="check" id="check" hidden="true" checked={`${checked}`}/>
-            <label for="check" class={`toggleLang relative ${checked?'bg-sexto':'bg-secundario'} h-32 w-14 `} onClick={toggleLanguage}>
-              <div class={`toggle__circle bg-white rounded-full w-[90%] h-[40%] absolute transition ease-in ${checked?'bottom-2  ':'top-2 '}`} onClick={toggleLanguage}></div>
+          <div class="container" /* onClick={toggleLanguage} */>
+            {/* <input type="checkbox" name="check" id="check" hidden="true" checked={`${checked}`} /> */}
+            <label for="check" class={`toggleLang relative ${checked?'bg-sexto':'bg-secundario'} duration-100 sm:h-32 sm:w-12 h-24 w-10`} onClick={toggleLanguage}>
+              <div class={`toggle__circle bg-white rounded-full w-[80%] h-[40%] absolute transition  ease-in ${checked?'bottom-2  ':'top-2 '}`} ></div>
             </label>
-            <div class="toggle-text text-white text-5xl flex p-2">
+            <div class="toggle-text text-white sm:text-4xl text-2xl flex p-2">
               <span className={`${checked?'opacity-70':'opacity-100'}`}>ENGLISH</span>
               <span className={`${checked?'opacity-100':'opacity-70'}`}>ESPAÑOL</span>
             </div>

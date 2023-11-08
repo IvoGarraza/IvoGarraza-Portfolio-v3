@@ -2,6 +2,7 @@
     "saludo":"¡Hola, Bienvenido a mi portafolio!",
     "nombre":"Soy Ivo Garraza.",
     "presentation":"Desarrollador Web Full Stack con especialidad en Front-End. Me apasiona la tecnología, el diseño y el aprendizaje constante para mi desarrollo personal y profesional. Me gusta trabajar en proyectos desafiantes con enfoque en el trabajo en equipo y la motivación.",
+    "dark":"MODO OSCURO",
     "age":{
         "age":"Edad",
         "old":"AÑOS"
@@ -18,5 +19,9 @@
         "temp":"Temperatura:",
         "condition":"Condición:",
         "time":"Hora:"
+    },
+    "discord":{
+        "on":"En linea",
+        "off":"Desconectado"
     }
 }

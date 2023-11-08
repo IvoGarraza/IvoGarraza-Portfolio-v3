@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import SunComponent from '../assets/weatherStyles/SunComponent';
 import NightComponent from '../assets/weatherStyles/NightComponent';
 import CloudComponent from '../assets/weatherStyles/CloudComponent';
+import {MapPinIcon} from '@heroicons/react/24/outline'
+import { ClockIcon } from '@heroicons/react/24/outline';
 
 
 const Wather = ({section}) => {
@@ -33,13 +35,21 @@ const Wather = ({section}) => {
       
       {weatherData ? (
         <div className='text-white flex flex-row items-center sm:justify-center justify-between h-full w-full'>
-          <div className='w-[60%]'>
-            <div className='flex flex-col items-center font-bold sm:text-xl text-lg'>
-              <h2>{weatherData.location.name}</h2>
-              <p>{t('weather.temp')} {weatherData.current.temp_c}°C</p>
-              <p>{t('weather.condition')} {weatherData.current.condition.text}</p>
-              <span>{t('weather.time')} {weatherData.location.localtime.split(' ')[1]}</span>
-              <img className='w-12 sm:flex hidden' src={weatherData.current.condition.icon}/>
+          <div className='w-[60%] sm:pl-6 pl-2'>
+            <div className='flex flex-col items-left font-bold sm:text-xl text-lg'>
+              <span className='sm:text-3xl'>{t('weather.temp')} <span className='text-yellow-500'>{weatherData.current.temp_c}°C</span></span>
+              <div className='flex flex-row items-center font-normal'>
+                <span className='sm:text-md text-md'>{t('weather.condition')} {weatherData.current.condition.text}</span>
+                <img className='w-10 sm:flex hidden ml-2' src={weatherData.current.condition.icon}/>
+              </div>
+              <div className='flex flex-row items-center'>
+                <MapPinIcon className='sm:w-6 w-4'></MapPinIcon>
+                <span className='font-light sm:text-md text-sm ml-1'>{weatherData.location.name}</span>
+              </div>
+              <div className='flex flex-row items-center'>
+                <ClockIcon className='sm:w-6 w-4'></ClockIcon>
+                <span className='font-light sm:text-md text-sm ml-1 '>{t('weather.time')} {weatherData.location.localtime.split(' ')[1]}</span>
+              </div>
             </div>
           </div>
           <div className='sm:w-[40%] '>

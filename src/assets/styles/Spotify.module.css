@@ -28,6 +28,14 @@
     animation: animateUpDown 0.5s infinite alternate;
     border-radius: 20px;
   }
+  .audiowireStop{
+    height: 50%;
+    margin: 0 2px;
+    padding: 0 1px;
+    background: white;
+   /*  animation: animateUpDown 0.5s infinite alternate; */
+    border-radius: 20px;
+  }
   
   .audiowire:nth-child(1) {
     animation-delay: 0.5ms;
