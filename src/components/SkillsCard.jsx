@@ -16,7 +16,7 @@ const SkillsCard = ({section}) => {
     <motion.div
     initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}}
       className="flex w-full h-full items-center bg-terciario justify-center cursor-pointer rounded-xl"
-      onClick={handleClick}
+      onClick={()=>setIsOpen(true)}
      
     >
       <div className="flex w-full h-full">
@@ -34,7 +34,7 @@ const SkillsCard = ({section}) => {
   {/*               <div className="w-full flex justify-end">
                   <button className="bg-red-600 text-white p-2 rounded-md items-end mr-16 mb-2">Close</button>
                 </div> */}
-                <SkillModal></SkillModal>
+                <SkillModal isOpen={isOpen} setIsOpen={setIsOpen}></SkillModal>
               </div>
             </motion.div>
           )}

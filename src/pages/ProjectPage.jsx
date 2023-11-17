@@ -18,7 +18,7 @@ const ProjectPage = () => {
           </svg>
         </Link>
           <span className='font-3xl text-white font-bold my-12 '>{t("projects.title")}</span>
-          <div ref={ref} className='w-full h-full grid grid-cols-3 grid-rows-4 gap-4 px-24 justify-items-center'>
+          <div ref={ref} className='w-full h-full grid sm:grid-cols-3 grid-cols-1 sm:grid-rows-4 gap-4 px-24 justify-items-center'>
             {projects.map((project, index)=>(
               <ProjectsCard isInView={isInView} project={project}></ProjectsCard>
             ))}

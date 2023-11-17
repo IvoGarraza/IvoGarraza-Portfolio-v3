@@ -23,8 +23,8 @@ const AboutCard = ({section}) => {
           <span className='text-white font-bold sm:text-2xl text-xs'>{t('nombre')}</span>
           <span className='text-white w-[70%] sm:text-2xl text-xs z-10'>{t('presentation')}</span>
         </div>
-        <img src={me} className='group-hover:w-[63%] w-[60%] absolute transition-all sm:-top-10 sm:-right-44 -right-12 top-10'></img>
-        <InformationCircleIcon className='fill-white sm:w-12 w-8 absolute sm:bottom-5 sm:left-5 top-3 right-3'></InformationCircleIcon>
+        <img src={me} className='group-hover:w-[63%]  w-[60%] absolute transition-all sm:-top-10 sm:-right-44 -right-12 top-10'></img>
+        <InformationCircleIcon className='fill-white sm:w-12 w-8 absolute sm:top-96 sm:left-6 top-4 right-4'></InformationCircleIcon>
     </motion.div>
   )
 }

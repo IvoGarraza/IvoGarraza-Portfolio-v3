@@ -37,7 +37,7 @@ const Wather = ({section}) => {
         <div className='text-white flex flex-row items-center sm:justify-center justify-between h-full w-full'>
           <div className='w-[60%] sm:pl-6 pl-2'>
             <div className='flex flex-col items-left font-bold sm:text-xl text-lg'>
-              <span className='sm:text-3xl'>{t('weather.temp')} <span className='text-yellow-500'>{weatherData.current.temp_c}°C</span></span>
+              <span className='sm:text-2xl'>{t('weather.temp')} <span className='text-yellow-500'>{weatherData.current.temp_c}°C</span></span>
               <div className='flex flex-row items-center font-normal'>
                 <span className='sm:text-md text-md'>{t('weather.condition')} {weatherData.current.condition.text}</span>
                 <img className='w-10 sm:flex hidden ml-2' src={weatherData.current.condition.icon}/>
@@ -52,7 +52,7 @@ const Wather = ({section}) => {
               </div>
             </div>
           </div>
-          <div className='sm:w-[40%] '>
+          <div className='sm:w-[40%] z-10'>
             {weatherData.current.condition.text ==='Sunny'?<SunComponent/>:<NightComponent/>}
             {/* <SunComponent /> */}
             {/* <NightComponent/> */}
