@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import me from '../assets/me2.png'
 import { motion } from 'framer-motion';
@@ -9,7 +9,7 @@ import { InformationCircleIcon } from '@heroicons/react/24/solid';
 
 const AboutCard = ({section}) => {
   const [t,i18n ] = useTranslation("global");
-
+  const [open, setOpen]= useState(false)
 
 
 
@@ -24,7 +24,13 @@ const AboutCard = ({section}) => {
           <span className='text-white w-[70%] sm:text-2xl text-xs z-10'>{t('presentation')}</span>
         </div>
         <img src={me} className='group-hover:w-[63%]  w-[60%] absolute transition-all sm:-top-10 sm:-right-44 -right-12 top-10'></img>
-        <InformationCircleIcon className='fill-white sm:w-12 w-8 absolute sm:top-96 sm:left-6 top-4 right-4'></InformationCircleIcon>
+        <InformationCircleIcon className='fill-white sm:w-12 w-8 absolute sm:top-96 sm:left-6 top-4 right-4 cursor-pointer'></InformationCircleIcon>
+        <div 
+        onMouseLeave={()=> setOpen(false)}
+        onMouseEnter={()=> setOpen(true)}
+         className={` ${open?'flex':'hidden'} text-white bg-slate-500 absolute bottom-10 left-24 px-4 py-2 rounded-md`}>
+          <span>Retrato hecho con stable difussion</span>
+        </div>
     </motion.div>
   )
 }

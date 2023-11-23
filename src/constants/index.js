@@ -26,6 +26,7 @@ export const projects = [
         id:'tres-dimensiones',
         title:'Tres Dimensiones',
         description:'Ecommerce para ventas de productos impresos en 3D e insumos para impresoras',
+        descripcionLarga:'Sitio web de ventas de productos para insumos y productos para impresoras 3D',
         img:tresdimensiones,
         boton:'Ver',
         link:'',
@@ -68,6 +69,7 @@ export const projects = [
         time:'20/11/2022',
         path:'/gea-web',
         repositorio:'https://github.com/IvoGarraza/gea-web',
+        link:'https://mellifluous-meringue-160b7a.netlify.app/',
         boton:'Ver'
     },
     {
@@ -78,8 +80,8 @@ export const projects = [
         /* avatar:foto, */
         time:'17/07/2022',
         path:'/rubber-ducky-with-arduino',
-        boton: 'Ver mas'
-        
+        boton: 'Ver mas',
+                
     },
 /*     {
         id:'analisis',
@@ -97,6 +99,8 @@ export const projects = [
         /* avatar:foto, */
         time:'20/12/2022',
         path:'/bank',
+        link:'https://extraordinary-mochi-3eb5fd.netlify.app/',
+        repositorio:'',
         boton:'Ver'
     },
     {
@@ -108,6 +112,7 @@ export const projects = [
         /* avatar:foto, */
         time:'18/01/2023',
         link:'https://github.com/IvoGarraza/Pokemon_Page_IndividualProyect',
+        repositorio:'https://github.com/IvoGarraza/Pokemon_Page_IndividualProyect',
         boton:'Link del Repositorio'
 
     },
@@ -118,7 +123,9 @@ export const projects = [
         description: 'Sitio web con todos los paises y descripciones de los mismos, realizado en el bootcamp de desarrollador web. En este proyecto se contruyo una API REST con node.js, para luego ser consumida y construir el frontend con React.js',
         path:'/countries-page',
         img:countries,
-        boton:'Link del repositorio'
+        boton:'Link del repositorio',
+        link:'',
+        repositorio:''
     },
 
 ]

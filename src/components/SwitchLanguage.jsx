@@ -4,8 +4,8 @@ import "./SwitchLanguaje.css";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const SwitchLanguage = ({ checked, section }) => {
-  const [activo, setActivo] = useState(true);
+const SwitchLanguage = ({ section, activo, setActivo }) => {
+  
   const [t, i18n] = useTranslation("global");
 
   const toogleMode = () => {

@@ -31,7 +31,7 @@ const ProjectsCard = ({ project, isInView }) => {
       <img src={project.img} className="absolute h-auto w-full"></img>
       <div className="absolute h-1/3 group-hover:h-full transition-all w-full bg-primario flex flex-col items-center justify-center bottom-0">
         <span className="font-bold text-white flex text-xl mb-2">{project.title}</span>
-        <span className="group-hover:flex text-center transition-opacity text-white hidden mb-2"> {project.description}</span>
+        <span className="group-hover:flex text-center px-2 transition-opacity text-white hidden mb-2"> {project.description}</span>
         <div className="group-hover:flex hidden">
           <div>
             {createPortal(
@@ -47,7 +47,11 @@ const ProjectsCard = ({ project, isInView }) => {
             )}
           </div>
         </div>
-        <button className="group-hover:flex hidden transition-opacity bg-noveno p-2 text-white rounded-md font-medium" onClick={handleClick}>{project.boton}</button>
+        {/* <button className="group-hover:flex hidden transition-opacity bg-noveno p-2 text-white rounded-md font-medium" onClick={handleClick}>{project.boton}</button> */}
+        <div className="flex flex-row w-full justify-around text-white">
+          <a href={project.repositorio} className="p-2 bg-noveno rounded-md group-hover:flex hidden">Repositorio</a>
+          <a href={project.link} className="p-2 bg-noveno rounded-md group-hover:flex hidden">Ver sitio</a>
+        </div>
       </div>
     </motion.div>
   );

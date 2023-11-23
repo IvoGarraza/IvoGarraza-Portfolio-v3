@@ -21,8 +21,8 @@ const SkillsCard = ({section}) => {
     >
       <div className="flex w-full h-full">
         <div className="grid grid-cols-4 grid-rows-3 w-full h-full items-center self-center justify-center place-items-center grayscale rounded-xl ">
-          {logos.map((logo) => (
-            <img className="sm:w-8 w-5" src={logo}></img>
+          {logos.slice(0,12).map((logo) => (
+            <img className="sm:w-8 w-5" src={logo.img}></img>
           ))}
         </div>
       </div>
