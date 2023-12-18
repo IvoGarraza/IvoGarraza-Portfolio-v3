@@ -23,5 +23,10 @@
     "discord":{
         "on":"Online",
         "off":"Offline"
+    },
+    "navbar":{
+        "home":"HOME",
+        "about":"ABOUT",
+        "contact":"CONTACT"
     }
 }
