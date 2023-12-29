@@ -18,7 +18,7 @@ const SwitchLanguage = ({ section, activo, setActivo }) => {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: ["all"].includes(section) ? 1 : 0.2 }}
-      className={`relative cursor-pointer flex flex-col items-center justify-center  w-full h-full ${
+      className={`relative cursor-pointer flex flex-col items-center justify-center w-full h-full ${
         activo ? "bg-[#001]" : "bg-[#6DC8FC]"
       }`}
       onClick={() => {
@@ -68,7 +68,7 @@ const SwitchLanguage = ({ section, activo, setActivo }) => {
           for="cb3-8"
           data-tg-on="ON"
           data-tg-off="OFF"
-          class="tgl-btn"
+          class="tgl-btn rounded-md"
           onClick={()=>{toogleMode();toogleSwicth()}}
         ></label>
       </div>

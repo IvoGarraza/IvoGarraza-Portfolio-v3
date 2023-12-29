@@ -179,17 +179,17 @@
   
   .checkbox-wrapper-8 .tgl-skewed + .tgl-btn {
     overflow: hidden;
-    transform: skew(-10deg);
+    /* transform: skew(-10deg); */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: all 0.2s ease;
     font-family: sans-serif;
-    background: #888;
+    background: #c50000;
   }
   
   .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:after,
     .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:before {
-    transform: skew(10deg);
+    /* transform: skew(10deg); */
     display: inline-block;
     transition: all 0.2s ease;
     width: 100%;

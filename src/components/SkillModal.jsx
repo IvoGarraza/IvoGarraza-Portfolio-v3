@@ -18,19 +18,19 @@ const variantsCard = {
 let transitionDuration = 0.3;
 let delayDuration = 0.0;
 
-const SkillModal = ({isOpen,setIsOpen}) => {
+const SkillModal = ({isOpen,setIsOpen,handleClick}) => {
   const { t } = useTranslation("global");
   const [stack, setStack] = useState('all')
 
-  const handleClick = () => {
-    isOpen=false;
-  };
+/*   const handleClick = () => {
+    setIsOpen(false);
+  }; */
 
   return (
     <div className="bg-white w-11/12 h-5/6 flex flex-col items-center justify-around rounded-xl p-6 relative">
       <h3 className="font-bold">{t("skill")}</h3>
-      <button className="w-8 h-8 absolute top-2 right-2 rounded-md p-1 bg-red-600 text-white font-bold" 
-      onClick={handleClick}>X</button>
+  {/*     <button className="w-8 h-8 absolute top-2 right-2 rounded-md p-1 bg-red-600 text-white font-bold" 
+      onClick={() => handleClick}>X</button> */}
       <div className="flex sm:flex-row flex-col items-center justify-between w-full">
         <div className="flex flex-row">
           <div className="sm:flex grid grid-cols-2 grid-rows-2 sm:flex-col items-center text-white text-lg font-bold">

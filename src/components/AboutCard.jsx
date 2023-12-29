@@ -8,7 +8,7 @@ import { InformationCircleIcon } from "@heroicons/react/24/solid";
 const AboutCard = ({ section }) => {
   const [t, i18n] = useTranslation("global");
   const [open, setOpen] = useState(false);
-  const [hover,setHover] = useState(false)
+  const [hover, setHover] = useState(false);
 
   return (
     <motion.div
@@ -33,22 +33,27 @@ const AboutCard = ({ section }) => {
         src={me}
         className="group-hover:w-[63%]  w-[60%] absolute transition-all sm:-top-10 sm:-right-44 -right-12 top-24"
       ></img>
-      <div className="absolute flex flex-row sm:top-96 sm:left-6 top-4 right-4">
-      <InformationCircleIcon onMouseOver={()=> setHover(true)} onMouseLeave={()=> setHover(false)} className="fill-white sm:w-12 w-8 cursor-pointer">
-      </InformationCircleIcon>
-        <div className={`w-44 h-24 bg-black ${hover ? 'flex':'hidden'}`}>
-
+      <div className="absolute flex flex-row items-start justify-start sm:top-96 sm:left-6 top-4 right-4">
+        <InformationCircleIcon
+          onMouseOver={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          className="fill-white sm:w-12 w-8 cursor-pointer"
+        ></InformationCircleIcon>
+        <div
+          className={`w-44 h-24 ml-4 -mt-6 opacity-90 p-2  items-center justify-center rounded-md bg-white ${hover ? "flex" : "hidden"}`}
+        >
+          <span className="text-black font-semibold text-center">{t("info")}</span>
         </div>
       </div>
-      <div
+{/*       <div
         onMouseLeave={() => setOpen(false)}
         onMouseEnter={() => setOpen(true)}
         className={` ${
           open ? "flex" : "hidden"
         } text-white bg-slate-500 absolute bottom-10 left-24 px-4 py-2 rounded-md`}
       >
-        <span>Retrato hecho con stable difussion</span>
-      </div>
+        
+      </div> */}
     </motion.div>
   );
 };

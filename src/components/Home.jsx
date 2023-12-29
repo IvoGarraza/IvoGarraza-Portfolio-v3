@@ -94,7 +94,7 @@ const Home = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.1 }}
                   key={i}
-                  className={`sm:row-span-1 rounded-xl overflow-hidden bg-gray-200 ${
+                  className={`sm:row-span-1 rounded-xl overflow-hidden bg-gray-200 ${i == 1 ? `${activo?'shadow-[0_10px_90px_0px_#fff]':'shadow-[0_10px_90px_0px_#F6D602]'}`:'shadow-none'} ${
                     i === 0
                       ? "sm:col-span-3 sm:row-span-2 col-span-2 row-span-2"
                       : i === 5 || i === 10 || i === 13
