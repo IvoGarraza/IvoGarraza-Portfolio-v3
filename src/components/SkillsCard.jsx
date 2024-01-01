@@ -37,7 +37,10 @@ const SkillsCard = ({ section }) => {
                 
                   <button
                     className="w-8 h-8 absolute top-4 right-14 rounded-md p-1 bg-red-600 text-white font-bold"
-                    onClick={(isOpen)=>setIsOpen(!isOpen)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsOpen(!isOpen);
+                    }}
                   >
                     X
                   </button>

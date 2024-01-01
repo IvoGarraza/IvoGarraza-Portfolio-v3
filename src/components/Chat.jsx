@@ -10,7 +10,7 @@ const Map = ({section}) => {
     <motion.div initial={{opacity:1}} animate={{opacity: ['all','about'].includes(section)?1:0.2}} className='group w-full h-full bg-center rounded-xl' style={{backgroundImage:`url(${map2})`}}>
       <a href='https://www.google.com/maps/place/C%C3%B3rdoba/@-31.3994532,-64.1942124,12z/data=!3m1!4b1!4m6!3m5!1s0x9432985f478f5b69:0xb0a24f9a5366b092!8m2!3d-31.4200833!4d-64.1887761!16zL20vMDFrMDNy?entry=ttu' target="_blank" className='bg-[rgba(0,0,0,0.2)] w-full h-full flex flex-col justify-between'>
         <div className='w-full h-[90%] relative  flex items-center justify-center'>
-          <div className='rounded-full bg-white w-1/3 border-white border-4 sm:h-24 h-20 group-hover:animate-ping'></div>
+          <div className='rounded-full bg-white w-1/4 border-white border-4 sm:h-20 h-12 group-hover:animate-ping'></div>
           <img className='rounded-full absolute border-white border-4 sm:h-24 h-20 ' src={me}></img>
         </div>
         <div className='flex items-end justify-end w-full h-[10%]'>
