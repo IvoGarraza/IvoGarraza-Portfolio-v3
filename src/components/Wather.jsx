@@ -15,7 +15,7 @@ const Wather = ({section}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://api.weatherapi.com/v1/current.json?key=bf8172e9d5824415a54215431231808&q=cordoba&aqi=no');
+        const response = await axios.get('https://api.weatherapi.com/v1/current.json?key=bf8172e9d5824415a54215431231808&q=cordoba&aqi=no');
         setWeatherData(response.data);
       } catch (error) {
         console.error('Error fetching weather data:', error);
