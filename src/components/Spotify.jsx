@@ -5,10 +5,29 @@ import styles from "../assets/styles/Spotify.module.css";
 import play from '../assets/play.svg'
 import pause from '../assets/pause.svg'
 import { music } from "../constants";
+import song1 from '../assets/covers/charly.mp3'
 
 
 const Spotify = ({ section }) => {
   const [isPlay, setIsPlay ] = useState(false) 
+
+  const handlePlay = () =>{
+   
+    document.getElementById("music").play();
+  }
+
+  const handlePause = () =>{
+   
+    document.getElementById("music").pause()
+  }
+
+  useEffect(()=>{
+    if(isPlay){
+      handlePlay()
+    }else{
+      handlePause()
+    }
+  },[isPlay])
 
   useEffect(() => {
     document.getElementById("music").volume = 0.5;
@@ -50,7 +69,7 @@ const Spotify = ({ section }) => {
           <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio4"></div>
           
         </div>
-        <audio  id="music" ></audio>
+        <audio  id="music" src={song1} ></audio>
   
     </motion.div>
   );
