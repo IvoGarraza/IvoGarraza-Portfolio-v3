@@ -9,6 +9,7 @@ import andes from '../assets/cardsImages/andesdean.jpg'
 import tresdimensiones from '../assets/cardsImages/tresdimensiones.png'
 import camuzzi  from '../assets/cardsImages/camuzzi.jpg'
 import broker from '../assets/cardsImages/broker.webp'
+import rick from '../assets/cardsImages/rick&morty.jpg'
 import {
     html,
     css,
@@ -101,6 +102,17 @@ export const projects = [
 
     },
     {
+        id:'rickandmorty',
+        title:'Rick & Morty App',
+        description:'Proyecto Web Frontend de Rick & Morty donde consume una api publica y se puede consultar todos los personajes, ubicacion y capitulos de la serie de Adult Swim',
+        link:'https://splendid-kulfi-34f285.netlify.app/',
+        img:rick,
+        boton:'ver',
+        time:'18/01/2022',
+        technologies:[react, tailwind, framer],
+        repositorio:'https://github.com/IvoGarraza/Rick-and-Morty-Web'
+    },
+    {
         id:'gea',
         title:'GEA',
         description:'Website for a company of geotecnichal studies',
@@ -124,7 +136,7 @@ export const projects = [
         /* avatar:foto, */
         time:'17/07/2022',
         path:'/rubber-ducky-with-arduino',
-        boton: 'Ver mas',
+        repositorio:'https://github.com/IvoGarraza/web-scraping-with-python'
                 
     },
 /*     {
