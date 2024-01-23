@@ -71,7 +71,8 @@ export const projects = [
         technologies:[html, css, angular, bootstrap, javascript],
         description:'Sistemas de registro de incidentes laborales para la empresa de gas natural de Camuzzi. Este sistemas se realizo con el equipo de Ubicuo Technologies, integrando la plataforma ya existente con su base de datos y diseñando un sistema exclusivo',
         img:camuzzi,
-        boton:'Ver'
+        boton:'Ver',
+        repositorio:'https://github.com/IvoGarraza/Formulario-Registro-de-Incidentes---Camuzzi'
     },
     {
         //cambiar imagen y datos
