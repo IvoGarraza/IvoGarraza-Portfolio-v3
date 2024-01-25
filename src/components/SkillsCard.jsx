@@ -36,7 +36,7 @@ const SkillsCard = ({ section }) => {
                 </div> */}
                 
                   <button
-                    className="w-8 h-8 absolute top-4 right-14 rounded-md p-1 bg-red-600 text-white font-bold"
+                    className="w-8 h-8 absolute top-4 sm:right-14 right-4 rounded-md p-1 bg-red-600 text-white font-bold"
                     onClick={(e) => {
                       e.stopPropagation();
                       setIsOpen(!isOpen);

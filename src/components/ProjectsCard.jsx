@@ -28,7 +28,7 @@ const ProjectsCard = ({ project, isInView }) => {
 
   return (
     <motion.div className="group w-72 h-96 mx-2 relative overflow-hidden rounded-xl">
-      <img src={project.img} className="absolute h-auto w-[150%]"></img>
+      <img src={project.img} className="absolute w-[95%] m-2 rounded-md "></img>
       <div className="absolute h-1/3 group-hover:h-full transition-all w-full bg-primario flex flex-col items-center justify-center bottom-0">
         <span className="font-bold text-white flex text-xl mb-2">{project.title}</span>
         <span className="group-hover:flex text-center px-2 transition-opacity text-white hidden mb-2"> {project.description}</span>

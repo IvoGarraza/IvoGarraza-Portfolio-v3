@@ -31,9 +31,9 @@ const Spotify = ({ section }) => {
         <div className="absolute top-3 left-3"> 
           <img className="sm:w-10 w-6" src={spotify}></img>
         </div>
-        <div id="audiovisual" className={`absolute bottom-2  w-1/3 left-2 sm:h-12 h-6 ${styles.audiovisual}`}>
+        <div id="audiovisual" className={`absolute bottom-2  w-1/3 left-2 sm:pl-0 pl-10 sm:h-12 h-6 ${styles.audiovisual}`}>
           <div id='botonPlay' >
-            <img className="w-6" src={isPlay?pause:play}></img>
+            <img className="sm:w-6 w-24" src={isPlay?pause:play}></img>
           </div>
           <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio1"></div>
           <div className={isPlay?styles.audiowire:styles.audiowireStop} id="audio2"></div>
