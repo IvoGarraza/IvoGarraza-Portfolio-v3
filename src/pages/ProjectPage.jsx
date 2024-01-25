@@ -21,9 +21,9 @@ const ProjectPage = () => {
           <span className='text-3xl text-white font-bold my-12 top-0 '>{t("projects.title")}</span>
           {/* <div ref={ref} className='w-full h-full grid sm:grid-cols-3 grid-cols-1 sm:grid-rows-4 gap-4 px-24 pb-12 justify-items-center'> */}
           <div id='projectsContainer' className='flex flex-row w-full overflow-x-scroll mb-12'>
-            <div className='flex flex-row scroll'>
+            <div className='flex flex-row sm:grid sm:grid-cols-4 sm:w-full sm:gap-4 sm:place-items-center scroll'>
               {projects.map((project, index)=>(
-                <ProjectsCard isInView={isInView} project={project}></ProjectsCard>
+                <ProjectsCard key={index} isInView={isInView} project={project}></ProjectsCard>
               ))}
             </div>
           </div>

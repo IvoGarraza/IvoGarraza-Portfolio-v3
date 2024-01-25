@@ -11,6 +11,8 @@ import mysql from './mysql.png'
 import postgres from './postgresql.png'
 import photoshop from './photoshop.png'
 import sqlmanagment from './sql.png'
+import angular from './angular.png'
+import bootstrap from './bootstrap.png'
 
 export const logos=[
     {
@@ -77,19 +79,32 @@ export const logos=[
         img:sqlmanagment,
         name:'SQL Server Management Studio',
         stack:'tools'
+    },
+    {
+        img:angular,
+        name:'Angular',
+        stack:'frontend'
+    },
+    {
+        img:bootstrap,
+        name:'Bootstrap',
+        stack:'frontend'
     }
 ]
 
-export const logos2 = {
-    html: html,
-    css:css,
-    javascript:javascript,
-    git:git,
-    node:node,
-    react:react,
-    tailwind:tailwind,
-    framer:framer,
-    python:python,
-    mysql:mysql,
-    photoshop:photoshop
+export {
+    html,
+    css,
+    javascript,
+    git,
+    node,
+    react,
+    tailwind,
+    framer,
+    python,
+    mysql,
+    photoshop,
+    postgres,
+    angular,
+    bootstrap
 }

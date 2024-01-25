@@ -22,6 +22,7 @@ import { delay, motion } from "framer-motion";
 import i18next, { t } from "i18next";
 import global_en from '../languages/en/global.json'
 import global_es from '../languages/es/global.json'
+import './Home.css'
 
 const Home = () => {
   const [activo, setActivo] = useState(true);

@@ -6,3 +6,25 @@
 #projectsContainer::-webkit-scrollbar {
     display: none; /* Oculta la barra de desplazamiento en navegadores WebKit */
   }
+
+  /* Firefox */
+#ProjectContainer {
+    scrollbar-width: thin;
+    scrollbar-color: #F72585f2 #7109b7f2;
+  }
+  
+  /* Chrome, Edge, and Safari */
+  #ProjectContainer::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  #ProjectContainer::-webkit-scrollbar-track {
+    background: #7109b7f2;
+    border-radius: 5px;
+  }
+  
+  #ProjectContainer::-webkit-scrollbar-thumb {
+    background-color: #F72585f2;
+    border-radius: 14px;
+    border: 3px solid #7109b7f2;
+  }
