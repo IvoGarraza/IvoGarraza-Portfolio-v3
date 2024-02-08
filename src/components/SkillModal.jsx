@@ -27,7 +27,7 @@ const SkillModal = ({isOpen,setIsOpen,handleClick}) => {
   }; */
 
   return (
-    <div className="bg-white w-11/12 h-5/6 flex flex-col items-center justify-around rounded-xl p-6 relative">
+    <div className="bg-white w-11/12 h-5/6 flex flex-col items-center justify-around rounded-xl sm:p-6 pt-44 pb-12 relative sm:overflow-hidden overflow-y-auto">
       <h3 className="font-bold">{t("skill")}</h3>
   {/*     <button className="w-8 h-8 absolute top-2 right-2 rounded-md p-1 bg-red-600 text-white font-bold" 
       onClick={() => handleClick}>X</button> */}
@@ -63,7 +63,7 @@ const SkillModal = ({isOpen,setIsOpen,handleClick}) => {
             <div className="h-[85%] w-1 left-1/3 absolute bg-slate-600"></div>
           </div> */}
         </div>
-        <div className="grid grid-cols-5 w-full place-items-center gap-4">
+        <div className="grid sm:grid-cols-5 grid-cols-3 w-full place-items-center gap-4">
           {logos.map((logo, index) => {
             const row = Math.floor(index / 3);
             const delay = (index % 3) * 0.05 + row * 0.1;
