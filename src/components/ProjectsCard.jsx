@@ -19,7 +19,7 @@ const ProjectsCard = ({ project, isInView }) => {
       className="group w-72 h-96 sm:h-72 mx-2 relative overflow-hidden rounded-xl"
       id="ProjectContainer"
     >
-      <img src={project.img} className="absolute bottom-10 h-auto w-[150%]"></img>
+      <img src={project.img} className="absolute bottom-10 w-[95%] m-2 rounded-md "></img>
       <div className="absolute flex items-center justify-center text-xl text-center text-white font-bold h-1/3 w-full bg-sexto">{project.title}</div>
       <div className="absolute group-hover:pt-14 group-hover:pb-4 h-1/6 group-hover:h-full transition-all w-full bg-primario flex flex-col items-center justify-center bottom-0 group-hover:overflow-auto">
         <span className="font-light flex group-hover:font-bold group-hover:text-xl text-white group-hover:hidden text-sm text-center mb-2">
