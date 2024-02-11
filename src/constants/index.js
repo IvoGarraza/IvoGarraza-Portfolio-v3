@@ -106,7 +106,7 @@ export const projects = [
         id:'rickandmorty',
         title:'Rick & Morty App',
         description:'Proyecto Web Frontend de Rick & Morty donde consume una api publica y se puede consultar todos los personajes, ubicacion y capitulos de la serie de Adult Swim',
-        link:'https://splendid-kulfi-34f285.netlify.app/',
+        link:'https://papaya-nougat-5315f0.netlify.app/',
         img:rick,
         boton:'ver',
         time:'18/01/2022',

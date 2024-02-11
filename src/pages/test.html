@@ -1,77 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AndesDean</title>
+    <link rel="stylesheet" type="text/css" href="./index.css"></link>
     <style type="text/css">
-        .loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  border: 3px solid;
-  border-color: #000 #FFF transparent transparent;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-.loader::after,
-.loader::before {
-  content: '';  
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  border: 3px solid;
-  border-color: transparent transparent #FF3D00 #FF3D00;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-sizing: border-box;
-  animation: rotationBack 10s linear infinite;
-  transform-origin: center center;
-}
-.loader::before {
-  width: 32px;
-  height: 32px;
-  border-color: #000 #FFF transparent transparent;
-  animation: rotation 15.0s linear infinite;
-}
-    
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} 
-@keyframes rotationBack {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-}
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+      body{
+        overflow: hidden;
+      }
+ .container{
+        font-family: 'Open Sans', sans-serif;
+        font-weight: medium;
+        width: 100%;
+        height: 100vh;
+        /* display: flex; */
+        flex-direction: column;
+      }
+
+      .containerServices{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      servicesContainer{
+        width: 100%;
+      }
+      .itemsWrap{
+        height: 30%;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 2fr));
+        row-gap: 0.5rem;
+        column-gap: 3rem;
+      }
+      .items{
+        --tw-bg-opacity: 1;
+    background-color: #052A49/* rgb(5 42 73 / var(--tw-bg-opacity)) */;
+  
+    --tw-text-opacity: 1;
+    color:  white/* rgb(255 255 255 / var(--tw-text-opacity)) */;
+    font-weight: bolder;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --tw-shadow: 8px 4px 3px 1px #718096;
+    --tw-shadow-colored: 8px 4px 3px 1px var(--tw-shadow-color);
+    box-shadow: rgba(0, 0, 0, 0.337) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        border-radius: 5%;
+      }
+      .items:hover{
+        background: white;
+        color: black;
+        border: 1px black;
+        --tw-shadow: 8px 4px 3px 1px #718096;
+    --tw-shadow-colored: 8px 4px 3px 1px var(--tw-shadow-color);
+    box-shadow: rgb(0, 0, 0) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      }
+      @media (max-width:768px) {
+        br{
+          display: none;
+        }
+        .itemsWrap{
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          height: 30%;
+          width: 100%;
+          row-gap: 0px;
+          gap: 4px;
+        }
+        .servicesContainer{
+          width: 100%;
+        }
+        .containerServices{
+          width: 100%;
+        }
+        .items{
+          height: 100%;
+          font-size:x-small;
+          align-self: center;
+          justify-self: center;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          background-color: #052a49;
+          color:rgb(255, 255, 255);
+          --tw-shadow: 0px 0px 0px 0px #71809600;
+          --tw-shadow-colored: 0px 0px 0px 0px var(--tw-shadow-color);
+          box-shadow: rgba(0, 0, 0, 0.337) 0px 0px 0px, rgba(0, 0, 0, 0.23) 0px 0px 0px;
+        }
+        .items:hover{
+          background: white;
+        border: 0px rgba(255, 255, 255, 0);
+        --tw-shadow: 0px 0px 0px 0px #71809600;
+    --tw-shadow-colored: 0px 0px 0px 0px var(--tw-shadow-color);
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px, rgba(0, 0, 0, 0.23) 0px 0px 0px;
+        }
+      }
+
     </style>
-    <script></script>
 </head>
-<body>
-  <div>
-    <div className="logoConatiner">
-        <span class="loader"></span>
+<div class="container">
+    <div class="containerServices">
+        <div class="servicesContainer">
+          <div class="itemsWrap">
+            <div class="items"><h4>Structural Engineering</h4></div>
+            <div class="items"><h4>Bim Modeling</h4></div>
+            <div class="items"><h4>Mep Engineering</h4></div>
+            <div class="items"><h4>3D Visualization</h4></div>
+            <div class="items"><h4>SD, DD, and CD Document Production</h4></div>
+            <div class="items"><h4>Project Management Support</h4></div>
+            <div class="items"><h4>QTO and <br/>Listing of Materials</h4></div>
+            <div class="items"><h4>Staff Aumengtation</h4></div>
+            <div class="items"><h4>Consultant Coordination <br/>and Support</h4></div>
+            <div class="items"><h4>Shop Drawings Production</h4></div>
+          </div>
+        </div>
     </div>
-    <div>
-      <span>500</span>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-</body>
+</div>
 </html>
