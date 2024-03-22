@@ -38,7 +38,7 @@ const English = ({ section }) => {
         <div className="relative w-full ">
           <div class="container" /* onClick={toggleLanguage} */>
             {/* <input type="checkbox" name="check" id="check" hidden="true" checked={`${checked}`} /> */}
-            <label for="check" class={`toggleLang relative ${checked?'bg-sexto':'bg-secundario'} sm:h-32 sm:w-12 h-24 w-8`} onClick={toggleLanguage}>
+            <label for="check" class={`toggleLang relative ${checked?'bg-sexto':'bg-secundario'} sm:h-32 sm:w-12 h-20 w-6`} onClick={toggleLanguage}>
               <div class={`toggle__circle bg-white rounded-full w-[80%] h-[40%] absolute transition  ease-in ${checked?'bottom-2  ':'top-2 '}`} ></div>
             </label>
             <div class="toggle-text text-white sm:text-4xl text-xl flex p-2">
