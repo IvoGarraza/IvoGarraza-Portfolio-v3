@@ -31,10 +31,11 @@ const Wather = ({section}) => {
 //Link de css para distintos tiempos https://codepen.io/akhil_001/pen/XNqQjw maldito ladron xd
 
   return (
-    <motion.div initial={{opacity:1}} animate={{opacity: ['all'].includes(section)?1:0.2}} className='h-full  bg-[#390ca3f0] p-6'>
+    <motion.div initial={{opacity:1}} animate={{opacity: ['all'].includes(section)?1:0.2}} className='h-full relative bg-[#390ca3f0] p-6'>
       
       {weatherData ? (
-        <div className='text-white flex flex-row items-center sm:justify-center justify-between h-full w-full'>
+        <div className='text-white flex flex-row items-center sm:justify-center justify-between h-full w-full '>
+          {/* <div className='absolute w-full bottom-0 h-12 bg-blue-400 '></div> */}
           <div className='w-[60%] sm:pl-6 pl-2'>
             <div className='flex flex-col items-left font-bold sm:text-xl text-lg'>
               <span className='sm:text-2xl'>{t('weather.temp')} <span className='text-yellow-500'>{weatherData.current.temp_c}°C</span></span>

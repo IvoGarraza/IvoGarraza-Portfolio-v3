@@ -10,6 +10,7 @@ import tresdimensiones from '../assets/cardsImages/tresdimensiones.png'
 import camuzzi  from '../assets/cardsImages/camuzzi.jpg'
 import broker from '../assets/cardsImages/broker.webp'
 import rick from '../assets/cardsImages/rick&morty.jpg'
+import webdev from '../assets/cardsImages/webdev.png'
 import {
     html,
     css,
@@ -27,6 +28,18 @@ import {
 } from '../assets/logos/index'
 
 export const projects = [
+    {
+        id:'webdev',
+        title:"Webdev",
+        description:"Sitio web para una marca de desarrollos web",
+        tipo:"Frelance",
+        img:webdev,
+        technologies:[react,html,css,framer,tailwind],
+        time:'02/2024',
+        boton:"Ver",
+        link:'https://webdevarg.onrender.com/',
+        repositorio:'https://github.com/IvoGarraza/webdevarg'
+    },
     {
         id:'andes-dean',
         title:'AndesDean Engineering Studio',
