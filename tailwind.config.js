@@ -11,8 +11,10 @@ export default {
         coding: "url('./assets/coding.webp')"
       },
       fontFamily:{
-        montserrat:['Montserrat', 'sans-serif']
+        'montserrat':['Montserrat', 'sans-serif'],
+        'retro':["m6x11", 'serif']
       },
+
       backgroundColor:{
         primario: "#7109b7f2",
         secundario:"#F72585f2",

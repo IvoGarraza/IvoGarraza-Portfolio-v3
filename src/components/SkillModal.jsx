@@ -14,6 +14,7 @@ const variantsCard = {
   dos: { scale: 1 },
   aparition: { opacity: 1, scale: 1 },
   hidden: { opacity: 0 },
+  exit:{scale:0}
 };
 let transitionDuration = 0.3;
 let delayDuration = 0.0;
@@ -27,7 +28,11 @@ const SkillModal = ({ isOpen, setIsOpen, handleClick }) => {
   }; */
 
   return (
-    <div className="bg-white w-11/12 h-5/6 flex flex-col items-center justify-around rounded-xl sm:p-6 pt-44 pb-12 relative sm:overflow-hidden overflow-y-auto">
+    <motion.div
+    initial={{y:100}}
+    animate={{y:0}}
+    exit={{y:1000}}
+    className="bg-white w-11/12 h-5/6 flex flex-col items-center justify-around rounded-xl sm:p-6 pt-12 pb-12 relative sm:overflow-hidden overflow-y-auto">
       <h3 className="font-bold">{t("skill")}</h3>
 
       <div className="flex sm:flex-row flex-col items-center justify-between w-full ">
@@ -71,9 +76,42 @@ const SkillModal = ({ isOpen, setIsOpen, handleClick }) => {
             </div>
           </div>
         </div>
-        
+          
+{/*           <div className="bg-purple-400 w-[95%] grid grid-cols-2 rounded-md ">
+              {logos.filter((logo, index) => {
+                // Aquí colocas tu condición de filtrado
+                return logo.name === "Node" || logo.name === "React" || logo.name === "TailwindCSS" || logo.name === "PostgreSQL";
+              }).map((logo, index) => {
+                return (
+                  <motion.div
+                    key={index} // Asegúrate de agregar un key único si estás utilizando un array en React
+                    variants={variantsCard}
+                    whileHover="uno"
+                    initial="hidden"
+                    animate="aparition"
+                    className="p-6 h-32 flex flex-col items-center justify-between text-center"
+                  >
+                    <img
+                      className={`sm:w-16 w-10 ${
+                        stack === logo.stack || stack === "all"
+                          ? "grayscale-0"
+                          : "grayscale"
+                      }`}
+                      src={logo.img}
+                      alt={logo.name} // Añade un atributo alt para accesibilidad
+                    />
+                    <span className="font-medium sm:text-lg text-xs">
+                      {logo.name}
+                    </span>
+                  </motion.div>
+                );
+              })}
+          </div> */}
           <div className="grid sm:grid-cols-5 grid-cols-3 w-full place-items-center gap-4">
-            {logos.map((logo, index) => {
+            {logos.filter((logo, index) => {
+                // Aquí colocas tu condición de filtrado
+                return logo.name !== "Node" || logo.name !== "React" || logo.name !== "TailwindCSS" || logo.name !== "PostgreSQL";
+              }).map((logo, index) => {
               const row = Math.floor(index / 3);
               const delay = (index % 3) * 0.05 + row * 0.1;
               const transition = { duration: 0.05, delay: delay };
@@ -103,7 +141,7 @@ const SkillModal = ({ isOpen, setIsOpen, handleClick }) => {
           </div>
         
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -29,24 +29,20 @@ const SkillsCard = ({ section }) => {
       {createPortal(
         <AnimatePresence>
           {isOpen && (
-            <motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{opacity:0}}>
               <div className="fixed top-0 left-0 w-full h-[100vh] flex flex-col items-center justify-center z-50 bg-[rgba(0,0,0,0.2)]">
-                {/*               <div className="w-full flex justify-end">
-                  <button className="bg-red-600 text-white p-2 rounded-md items-end mr-16 mb-2">Close</button>
-                </div> */}
-                
-                  <button
-                    className="w-8 h-8 absolute sm:top-4 sm:right-14 top-8 right-8 rounded-md p-1 bg-red-600 text-white font-bold"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setIsOpen(!isOpen);
-                    }}
-                  >
-                    X
-                  </button>
-                
+                <button
+                  className="w-8 h-8 absolute sm:top-4 sm:right-14 top-8 right-8 rounded-md p-1 bg-red-600 text-white font-bold"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsOpen(!isOpen);
+                  }}
+                >
+                  X
+                </button>
+
                 <SkillModal
-/*                   isOpen={isOpen}
+                /*                   isOpen={isOpen}
                   handleClick={handleClick}
                   setIsOpen={setIsOpen} */
                 ></SkillModal>

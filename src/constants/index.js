@@ -11,6 +11,7 @@ import camuzzi  from '../assets/cardsImages/camuzzi.jpg'
 import broker from '../assets/cardsImages/broker.webp'
 import rick from '../assets/cardsImages/rick&morty.jpg'
 import webdev from '../assets/cardsImages/webdev.png'
+import digitalmakers from '../assets/cardsImages/digitalmakers.png'
 import {
     html,
     css,
@@ -29,10 +30,22 @@ import {
 
 export const projects = [
     {
+        id:'digitalmakers',
+        title:"Digital Makers",
+        description:"Sitio web para empredimiento de desarrollos web",
+        tipo:"Freelance",
+        img:digitalmakers,
+        technologies:[react,html,css,framer,tailwind],
+        time:'08/2024',
+        boton:"Ver",
+        link:'https://digitalmakers.tech/',
+        repositorio:'https://github.com/IvoGarraza/digital-makers'
+    },
+    {
         id:'webdev',
         title:"Webdev",
         description:"Sitio web para una marca de desarrollos web",
-        tipo:"Frelance",
+        tipo:"Freelance",
         img:webdev,
         technologies:[react,html,css,framer,tailwind],
         time:'02/2024',

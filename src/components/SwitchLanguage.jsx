@@ -37,7 +37,7 @@ const SwitchLanguage = ({ section, activo, setActivo }) => {
         </span>
       </label> */}
 
-      <div className="absolute" id="bdy" onClick={()=>{toogleMode();toogleSwicth()}}>
+      <div className="absolute" id="bdy">
         <div
           className={`sm:w-28 sm:h-28 w-14 h-14 ${
             activo ? "bg-[#fff]" : "bg-[#F6D602] border-[#f5eb71] border-[5px]"
@@ -62,16 +62,24 @@ const SwitchLanguage = ({ section, activo, setActivo }) => {
           ></div>
         </div>
       </div>
-      <div class="checkbox-wrapper-8 absolute bottom-3" onClick={()=>{toogleMode();toogleSwicth()}}>
-        <input type="checkbox" id="cb3-8" class="tgl tgl-skewed" checked={active} onClick={()=>{toogleMode();toogleSwicth()}}/>
+{/*       <div class="checkbox-wrapper-8 absolute bottom-3">
+        <input
+          type="checkbox"
+          id="cb3-8"
+          className="tgl tgl-skewed"
+          checked={active}
+          onChange={() => {
+            toogleSwicth(); // Cambia el estado `active`
+            toogleMode(); // Cambia el estado `activo` en el padre
+          }}
+        />
         <label
-          for="cb3-8"
+          htmlFor="cb3-8"
           data-tg-on="ON"
           data-tg-off="OFF"
-          class="tgl-btn rounded-md"
-          onClick={()=>{toogleMode();toogleSwicth()}}
+          className="tgl-btn rounded-md"
         ></label>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

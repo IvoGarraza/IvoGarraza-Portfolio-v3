@@ -3,14 +3,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'm6x11';
+  src: url('../src/assets//fonts/m6x11plus.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url();
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
-
+  /* font-family: m6x11; */
   /* color-scheme: light dark; */
   background-color: #ffffff;
 
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
