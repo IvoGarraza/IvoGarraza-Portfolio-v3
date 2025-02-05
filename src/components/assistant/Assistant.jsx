@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Charter from "./Charter";
 
 const Assistant = ({ description }) => {
   return (
-    <div className="fixed w-12 h-12 bottom-24 right-8 bg-secundario">
+    <div className="fixed w-12 h-12 bottom-24 right-8 bg-secundario pointer-events-none">
       <div className="w-2 h-2 bg-white absolute top-3 right-2 rounded-full"></div>
       <div className="w-2 h-2 bg-white absolute top-3 left-2 rounded-full"></div>
       <div className="w-2/3 h-1 bg-black absolute left-2 bottom-2"></div>
@@ -18,7 +19,7 @@ const Assistant = ({ description }) => {
             <span className="text-black">{description}</span>
           </motion.div>
         )}
-      
+      <Charter></Charter>
     </div>
   );
 };
