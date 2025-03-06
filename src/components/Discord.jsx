@@ -1,26 +1,55 @@
-import React, { useEffect } from 'react'
-import discord from '../assets/discord.gif'
-import {motion} from 'framer-motion'
-import link from '../assets/link.svg'
-import discord2 from '../assets/discord.webp'
-import { useTranslation } from 'react-i18next'
+import React, { useEffect, useState } from "react";
+import discord from "../assets/discord.gif";
+import { AnimatePresence, motion } from "framer-motion";
+import link from "../assets/link.svg";
+import discord2 from "../assets/discord.webp";
+import { useTranslation } from "react-i18next";
+import { createPortal } from "react-dom";
+import ChatbotModal from "./ChatbotModal";
+import { Link } from "react-router-dom";
 
+const Discord = ({ section }) => {
+  const [t, i18n] = useTranslation("global");
+  const [openBot, setOpenBot] = useState(false);
 
-const Discord = ({section}) => {
-  const [t,i18n ] = useTranslation("global");
+  const handleCloseModal = (e) => {
+    e.stopPropagation(); // Evita que el evento se propague al contenedor principal
+    setOpenBot(false);
+  };
 
   return (
-    
-      <motion.a initial={{opacity:1}} animate={{opacity: ['all','contact'].includes(section)? 1: 0.1}} href='https://www.discordapp.com/users/641839122180210710' className='w-full h-full bg-[#390ca3f0] flex flex-col rounded-xl items-center justify-center relative'>
-        <img className="sm:w-6 w-4 opacity-70 absolute top-3 right-3" src={link}></img>
-        <img  className='sm:w-44 w-24' src={discord2}></img>
-        <div className='flex flex-row bg-slate-300 px-2 rounded-full items-center'>
-          <div className='w-[10px] h-[10px] bg-green-500 rounded-full'></div>
-          <span className='ml-2'>{t('discord.on')}</span>
-        </div>
-      </motion.a>
-  
-  )
-}
+    <Link to="/chat">
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: ["all", "contact"].includes(section) ? 1 : 0.1 }}
+      className="w-full h-full bg-[#390ca3f0] flex flex-col rounded-xl items-center justify-center relative"
+      onClick={() => setOpenBot(true)}
+    >
+      {/* Renderiza el modal usando createPortal */}
+      {createPortal(
+        <AnimatePresence>
+          {openBot && (
+            <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+            onClick={handleCloseModal} // Cierra el modal al hacer clic fuera
+          >
+            <div
+              /* className="bg-white p-6 rounded-lg shadow-lg" */
+              onClick={(e) => e.stopPropagation()} // Evita que el modal se cierre al hacer clic dentro
+            >
+              <ChatbotModal onClose={handleCloseModal} />
+            </div>
+          </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body // Renderiza el modal directamente en el body
+      )}
+    </motion.div>
+    </Link>
+  );
+};
 
-export default Discord
+export default Discord;

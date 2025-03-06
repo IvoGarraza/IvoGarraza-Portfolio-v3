@@ -90,8 +90,8 @@ const Home = () => {
 
   return (
     <I18nextProvider i18n={i18next}>
-      {/* <Navbar setSection={setSection} section={section}></Navbar> */}
-      <NavbarDos setSection={setSection} section={section}></NavbarDos>
+      <Navbar setSection={setSection} section={section}></Navbar>
+      {/* <NavbarDos setSection={setSection} section={section}></NavbarDos> */}
       {/*  <div className="bg-noise fill-black font-montserrat"> */}
       <div className="fixed font-retro w-full h-[100vh] opacity-[.04] pointer-events-none bg-noise z-50"></div>
       <div
@@ -131,7 +131,7 @@ const Home = () => {
           ))}
         </div>
         <div
-          className="fixed w-10 h-10 left-2 top-2"
+          className="sm:flex hidden fixed w-10 h-10 left-2 top-2"
           onClick={() => {
             toggleFullscreen();
             LoopMusic();

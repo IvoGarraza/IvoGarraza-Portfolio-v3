@@ -8,7 +8,10 @@
         "age":"Age",
         "old":"YEARS OLD"
     },
-    "exp":"Experience",
+    "exp":{
+        "experience":"Experience",
+        "years":"YEARS"
+    },
     "projects":{
         "title":"Projects & Tests",
         "description":"Algunos de los proyectos y pruebas que realize como desarrollador"
