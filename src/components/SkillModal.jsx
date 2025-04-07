@@ -76,37 +76,6 @@ const SkillModal = ({ isOpen, setIsOpen, handleClick }) => {
             </div>
           </div>
         </div>
-          
-{/*           <div className="bg-purple-400 w-[95%] grid grid-cols-2 rounded-md ">
-              {logos.filter((logo, index) => {
-                // Aquí colocas tu condición de filtrado
-                return logo.name === "Node" || logo.name === "React" || logo.name === "TailwindCSS" || logo.name === "PostgreSQL";
-              }).map((logo, index) => {
-                return (
-                  <motion.div
-                    key={index} // Asegúrate de agregar un key único si estás utilizando un array en React
-                    variants={variantsCard}
-                    whileHover="uno"
-                    initial="hidden"
-                    animate="aparition"
-                    className="p-6 h-32 flex flex-col items-center justify-between text-center"
-                  >
-                    <img
-                      className={`sm:w-16 w-10 ${
-                        stack === logo.stack || stack === "all"
-                          ? "grayscale-0"
-                          : "grayscale"
-                      }`}
-                      src={logo.img}
-                      alt={logo.name} // Añade un atributo alt para accesibilidad
-                    />
-                    <span className="font-medium sm:text-lg text-xs">
-                      {logo.name}
-                    </span>
-                  </motion.div>
-                );
-              })}
-          </div> */}
           <div className="grid sm:grid-cols-5 grid-cols-3 w-full place-items-center gap-4">
             {logos.filter((logo, index) => {
                 // Aquí colocas tu condición de filtrado

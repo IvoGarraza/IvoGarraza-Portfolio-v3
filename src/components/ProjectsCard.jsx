@@ -16,7 +16,7 @@ const ProjectsCard = ({ project, isInView }) => {
 
   return (
     <motion.div
-      className="group w-72 h-96 sm:h-72 mx-2 relative overflow-hidden rounded-xl"
+      className="group w-screen sm:w-72 p-2 sm:p-0 h-44 sm:h-72 sm:mx-2 relative overflow-hidden rounded-xl"
       id="ProjectContainer"
     >
       <img src={project.img} className="absolute bottom-10 w-[95%] m-2 rounded-md "></img>

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import SkillModal from "./SkillModal";
 import { createPortal } from "react-dom";
 import { ReactDOM } from "react-dom";
+import { TapSound } from "../utils/utils";
 
 const SkillsCard = ({ section }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +37,7 @@ const SkillsCard = ({ section }) => {
                   onClick={(e) => {
                     e.stopPropagation();
                     setIsOpen(!isOpen);
+                    TapSound()
                   }}
                 >
                   X
