@@ -113,8 +113,8 @@ const ChatbotModal = () => {
               </div>
             </div>
           ))}
-           {/* Mostrar mensaje de carga si isLoading es true */}
-           {isLoading && (
+          {/* Mostrar mensaje de carga si isLoading es true */}
+          {isLoading && (
             <div className="w-full flex flex-row">
               <div className="visible w-12 h-12 overflow-hidden">
                 <img className="size-12 rounded-full" src={iaProfile}></img>
