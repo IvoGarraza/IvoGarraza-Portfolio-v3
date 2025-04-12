@@ -26,6 +26,7 @@ import NavbarDos from "./NavbarDos";
 import { useFullscreen } from "../hooks/hooks";
 import EnterFullscreen from "../assets/svg/fullscreen/EnterFullscreen";
 import ExitFullscreen from "../assets/svg/fullscreen/ExitFullscreen";
+import {VelocityText} from "../components/dinamic-bar/DynamicBar.jsx"
 
 const Home = () => {
   const [activo, setActivo] = useState(true);
@@ -99,6 +100,7 @@ const Home = () => {
           activo ? "bg-[#090a13f2]" : "bg-slate-50"
         } transition-all  pt-8 pb-24 sm:px-24 px-4`}
       >
+      {/* <VelocityText></VelocityText> */}
         <div className="grid sm:auto-rows-[224px] auto-rows-[136px] sm:grid-cols-4 grid-cols-2 gap-4">
           {componentsToRender.map((component, i) => (
             <motion.div

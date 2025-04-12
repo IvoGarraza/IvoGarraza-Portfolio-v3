@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState(""); //Estado para el input del usuario
   const [isLoading, setIsLoading] = useState(false); // Estado de carga
+  const mensajes = [
+    { role: 'system', content: 'Soy un modelo de inteligencia artificial' },
+    { role: 'user', content: 'Que puede hacer?' },
+    { role: 'system', content: 'Soy un modelo de inteligencia artificial' },
+  ]
+
 
   const systemPromtp = `
-  Actua como Ivo Garraza, desarrollador fullstack, con especialidad en Front-end, que solo proporciona la respuesta final, sin incluir el proceso de pensamiento o el "think". 
+  Actua como Ivo Garraza, desarrollador fullstack, con especialidad en Front-end. 
   Tu enfoque principal es crear aplicaciones web escalables con tecnologías modernas.
   
   Datos del perfil profesional:
@@ -22,8 +29,7 @@ const ChatPage = () => {
   1. Nunca inventes información que no esté en este prompt.
   2. Sé amigable pero profesional.
   3. Si no sabes algo, ofrece contactar por email.
-  4. Responde siempre en primera persona, como si fueras Ivo Garraza.
-  5. No menciones que eres un asistente virtual o un modelo de lenguaje.
+  4. Responde siempre en primera persona, como si fueras Ivo Garraza, pero si lo requiere, puedes mencionar que solo eres un modelo de IA.
   6. Sé conciso y directo en tus respuestas. No repitas información innecesariamente.
   7. Limita tus respuestas a un máximo de 3 oraciones.
 `;
@@ -38,13 +44,11 @@ const ChatPage = () => {
 
     try {
       const response = await axios.post(
-        "https://api.groq.com/openai/v1/chat/completions",
+        "https://openrouter.ai/api/v1/chat/completions",
         {
-          max_tokens: 500, // Limita la respuesta a 100 tokens
-          temperature: 0.7, // Controla la creatividad
-          "stream": false,
-          "stop": null,
-          model: "deepseek-r1-distill-llama-70b",
+          /* model: "deepseek-r1-distill-llama-70b", */
+          model: 'openai/gpt-4o',
+          max_tokens: 100,
           messages: [
             {
               role: "system",
@@ -52,18 +56,16 @@ const ChatPage = () => {
             },
             ...newMessage,
           ],
-          response_format: {
-            type: "text"
-        }
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer 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`,
             "Content-Type": "application/json",
           },
         }
       );
 
+      console.log('respuesta de la API:', response.data)
       const botMessage = response.data.choices[0].message;
       setMessages([...newMessage, botMessage]);
       console.log("Bot response:", response);
@@ -78,50 +80,56 @@ const ChatPage = () => {
   return (
     <div className="bg-noise w-full h-[100vh] relative">
       <div className="bg-[rgba(23,26,48,0.95)] w-full h-full flex sm:items-center flex-col sm:justify-center justify-center">
-        <div className="w-4/6 bg-white h-5/6 flex flex-col rounded-lg justify-between overflow-y-auto">
-          <div className="w-full h-1/5 bg-black"></div>
+        <div className="w-4/6 bg-transparent h-5/6 flex flex-col rounded-lg justify-between overflow-y-auto">
           <div className="w-full h-3/5">
-            {messages.map((msg, index) => (
-              <div className={`w-full flex flex-row`}>
-                <div
-                  className={`${
-                    msg.role == "user"
+            <AnimatePresence>
+              {mensajes.map((msg, index) => (
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  key={index} className={`w-full flex flex-row`}>
+                  <div
+                    className={`${msg.role == "user"
                       ? "hidden"
                       : "visible w-12 h-12 overflow-hidden"
-                  }`}
-                >
-                  {/* <img className="size-12 rounded-full" src={iaProfile}></img> */}
-                </div>
-                <div
-                  className={`${
-                    msg.role == "user"
+                      }`}
+                  >
+                  </div>
+                  <div
+                    className={`${msg.role == "user"
                       ? "bg-white ml-auto mr-2"
                       : "bg-purple-400 text-white self-start ml-2"
-                  } rounded-xl w-fit p-4 mt-2`}
-                >
-                  {msg.content}
-                </div>
-              </div>
-            ))}
-            {/* Mostrar mensaje de carga si isLoading es true */}
-            {isLoading && (
-              <div className="w-full flex flex-row">
-                <div className="visible w-12 h-12 overflow-hidden">
-                  {/* <img className="size-12 rounded-full" src={iaProfile}></img> */}
-                </div>
-                <div className="bg-purple-400 text-white self-start ml-2 rounded-xl w-fit p-4 mt-2">
-                  <div className="flex flex-row gap-2">
-                    <div className="w-3 h-3 rounded-full bg-white animate-bounce"></div>
-                    <div className="w-3 h-3 rounded-full bg-white animate-bounce [animation-delay:-.3s]"></div>
-                    <div className="w-3 h-3 rounded-full bg-white animate-bounce [animation-delay:-.5s]"></div>
+                      } rounded-xl w-fit p-4 mt-2`}
+                  >
+                    {msg.content}
                   </div>
-                </div>
-              </div>
-            )}
+                </motion.div>
+              ))}
+              {/* Mostrar mensaje de carga si isLoading es true */}
+
+              {isLoading && (
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="w-full flex flex-row">
+                  <div className="visible w-12 h-12 overflow-hidden">
+                  </div>
+                  <motion.div
+
+                    className="bg-purple-400 text-white self-start ml-2 rounded-xl w-fit p-4 mt-2">
+                    <div className="flex flex-row gap-2">
+                      <div className="w-3 h-3 rounded-full bg-white animate-bounce"></div>
+                      <div className="w-3 h-3 rounded-full bg-white animate-bounce [animation-delay:-.3s]"></div>
+                      <div className="w-3 h-3 rounded-full bg-white animate-bounce [animation-delay:-.5s]"></div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <form
             onSubmit={handleSubmit}
-            className="h-[10%] w-full pl-2 flex flex-row justify-around bottom-0 bg-slate-300"
+            className="h-[10%] w-full pl-2 flex flex-row justify-around bottom-0"
           >
             <input
               className="w-4/5 my-2 mx-2 px-4 rounded-full"

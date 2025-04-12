@@ -22,9 +22,9 @@ const AboutCard = ({ section }) => {
           {t("saludo")}👋
         </span>
         <br className="sm:flex hidden" />
-        <span className="relative group/name text-white hover:text-[#F72585f2] z-10 font-bold sm:text-2xl text-xs">
+        <span className="relative group/name text-white z-10 font-bold sm:text-2xl text-xs">
           {t("nombre")}
-          <div className="absolute w-0 group-hover:w-44 h-[3px] bottom-0 bg-black -z-10 group-hover/name:h-full transition-all"></div>
+          <div className="absolute w-0 group-hover:w-48 h-[3px] bottom-0 bg-black -z-10 group-hover/name:h-full transition-all"></div>
         </span>
         <span className="text-white w-[70%] sm:text-2xl text-xs font-extralight z-10">
           {t("presentation")}
