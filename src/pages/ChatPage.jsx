@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import Bot from "../assets/svg/bot/Bot";
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
@@ -10,6 +11,7 @@ const ChatPage = () => {
     { role: 'system', content: 'Soy un modelo de inteligencia artificial' },
     { role: 'user', content: 'Que puede hacer?' },
     { role: 'system', content: 'Soy un modelo de inteligencia artificial' },
+    
   ]
 
 
@@ -80,6 +82,9 @@ const ChatPage = () => {
   return (
     <div className="bg-noise w-full h-[100vh] relative">
       <div className="bg-[rgba(23,26,48,0.95)] w-full h-full flex sm:items-center flex-col sm:justify-center justify-center">
+        <div className="absolute left-0 top-10">
+          <Bot></Bot>
+        </div>
         <div className="w-4/6 bg-transparent h-5/6 flex flex-col rounded-lg justify-between overflow-y-auto">
           <div className="w-full h-3/5">
             <AnimatePresence>

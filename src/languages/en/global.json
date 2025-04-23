@@ -1,36 +1,37 @@
 {
-    "saludo":"¡Hi, Welcome to my portfolio!",
-    "nombre":"I'm Ivo Garraza.",
-    "presentation":"Full Stack Web Developer with a specialization in Front-End. I am passionate about technology, design, and continuous learning for my personal and professional growth. I enjoy working on challenging projects with a focus on teamwork and motivation.",
-    "info":"Portrait made with Stable Diffusion",
-    "dark":"DARK MODE",
-    "age":{
-        "age":"Age",
-        "old":"YEARS OLD"
+    "saludo": "¡Hi, Welcome to my portfolio!",
+    "nombre": "I'm Ivo Garraza.",
+    "presentation": "Full Stack Web Developer with a specialization in Front-End. I am passionate about technology, design, and continuous learning for my personal and professional growth. I enjoy working on challenging projects with a focus on teamwork and motivation.",
+    "info": "Portrait made with Stable Diffusion",
+    "dark": "DARK MODE",
+    "age": {
+        "age": "Age",
+        "old": "YEARS OLD"
     },
-    "exp":{
-        "experience":"Experience",
-        "years":"YEARS"
+    "exp": {
+        "experience": "Experience",
+        "years": "YEARS"
     },
-    "projects":{
-        "title":"Projects & Tests",
-        "description":"Algunos de los proyectos y pruebas que realize como desarrollador"
+    "projects": {
+        "title": "Projects & Tests",
+        "description": "Algunos de los proyectos y pruebas que realize como desarrollador"
     },
-    "eng_level":"English level general",
-    "click":"(click for change language)",
-    "skill":"Some of my skill learn of the time...",
-    "weather":{
-        "temp":"Temperature:",
-        "condition":"Condition:",
-        "time":"Time:"
+    "eng_level": "English level general",
+    "language":"english",
+    "click": "(click for change mode)",
+    "skill": "Some of my skill learn of the time...",
+    "weather": {
+        "temp": "Temperature:",
+        "condition": "Condition:",
+        "time": "Time:"
     },
-    "discord":{
-        "on":"Online",
-        "off":"Offline"
+    "discord": {
+        "on": "Online",
+        "off": "Offline"
     },
-    "navbar":{
-        "home":"HOME",
-        "about":"ABOUT",
-        "contact":"CONTACT"
+    "navbar": {
+        "home": "HOME",
+        "about": "ABOUT",
+        "contact": "CONTACT"
     }
 }

@@ -47,7 +47,7 @@ const FlipLink = ({ children, href }) => {
           </motion.span>
         ))}
       </div>
-      <div className="absolute inset-0 px-4">
+      <div className="absolute inset-0 px-4 text-[#F72585f2]">
         {children.split("").map((l, i) => (
           <motion.span
             variants={{
