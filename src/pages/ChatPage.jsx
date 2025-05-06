@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import Bot from "../assets/svg/bot/Bot";
@@ -12,11 +12,18 @@ import {
   TapSound,
 } from "../utils/utils.jsx";
 import { Link } from "react-router-dom";
+import balatroLogo from '../assets/logos/balatro.png'
+import TvEffect from "../components/TvEffect/TvEffect.jsx";
+const API_KEY = ProcessingInstruction.enc
+
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState(""); //Estado para el input del usuario
   const [isLoading, setIsLoading] = useState(false); // Estado de carga
+  const [mensajito, setMensajito] = useState("");
+  const [isAnimating, setIsAnimating] = useState(false)
+  const animationTimeoutRef = useRef(null); // Para limpiar los timeouts
   const mensajes = [
     { role: "system", content: "Soy un modelo de inteligencia artificial" },
     { role: "user", content: "Que puede hacer?" },
@@ -68,7 +75,7 @@ const ChatPage = () => {
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer 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`,
             "Content-Type": "application/json",
           },
         }
@@ -79,6 +86,7 @@ const ChatPage = () => {
       setMessages([...newMessage, botMessage]);
       console.log("Bot response:", response);
       console.log("Bot response:", botMessage.content);
+      setMensajito(botMessage.content);
     } catch (error) {
       console.error("Error al enviar mensaje:", error);
     } finally {
@@ -87,23 +95,46 @@ const ChatPage = () => {
   };
 
   const playNotesForMessage = (message) => {
-    const maxNotes = 30; // 🔥 límite máximo de sonidos
+    const maxNotes = 20; //límite máximo de sonidos
     const repeatCount = Math.min(message.length, maxNotes);
-  
+
     let i = 0;
     const interval = setInterval(() => {
       if (i >= repeatCount) {
         clearInterval(interval);
         return;
       }
-      playRandomNote();
+      playVoice();
+            
+      // Activa la animación
+      setIsAnimating(true);
+      
+      // Limpia cualquier timeout anterior
+      if (animationTimeoutRef.current) {
+        clearTimeout(animationTimeoutRef.current);
+      }
+      
+      // Establece un nuevo timeout para desactivar la animación
+      animationTimeoutRef.current = setTimeout(() => {
+        setIsAnimating(false);
+      }, 80); // Duración de la animación (ms)
+
+
       i++;
-    }, 100); // podés ajustar el delay
+    }, 100);
   };
+
+    // Variantes de animación para el motion.img
+    const imageVariants = {
+      idle: { rotate: 0, scale: 1 },
+      animate: { rotate: [-2, 2, -2], scale: [1, 1.05, 1] },
+      hover: { rotate: 5, scale: 0.9 }
+    };
+  
 
   useEffect(() => {
     const lastMessage = messages[messages.length - 1];
-    console.log('logeo del ultimo mensaje', lastMessage)
+    console.log("logeo del ultimo mensaje", lastMessage);
     if (lastMessage && lastMessage.role === "assistant") {
       playNotesForMessage(lastMessage.content);
     }
@@ -118,23 +149,36 @@ const ChatPage = () => {
 
   return (
     <div className="bg-noise w-full h-[100vh] relative overflow-hidden font-retro">
-      <div className="bg-[rgba(33,75,33,0.95)] w-full h-full flex sm:items-center flex-row sm:justify-center justify-center">
-        <Link to="/" onClick={()=>TapSound()} className="group top-10 sm:left-10 left-5 absolute bg-yellow-400 p-4 rounded-lg hover:translate-x-[20px] transition-all">
-        <svg
-            className="fill-white w-8 rotate-180  "
+      <TvEffect></TvEffect>
+      <div className="bg-[rgba(33,75,33,0.95)] w-full h-full flex sm:items-center sm:flex-row flex-col sm:justify-center justify-center">
+        
+        <Link
+          to="/"
+          onClick={() => TapSound()}
+          className="group top-10 sm:left-10 left-5 absolute bg-yellow-400 p-4 rounded-lg hover:translate-x-[20px] transition-all"
+        >
+          <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
+            fill="#fff"
+            viewBox="0 0 22 22"
+            id="memory-arrow-left-bold"
+            className="w-10 group-hover:fill-black"
           >
-            <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+            <path d="M12 20H10V19H9V18H8V17H7V16H6V15H5V14H4V13H3V12H2V10H3V9H4V8H5V7H6V6H7V5H8V4H9V3H10V2H12V7H20V15H12V20M10 16V13H18V9H10V6H9V7H8V8H7V9H6V10H5V12H6V13H7V14H8V15H9V16H10Z" />
           </svg>
-          
-          </Link>
+        </Link>
         <motion.div
           initial={{ y: -500 }}
           animate={{ y: 0 }}
-          className="w-1/3 flex items-center justify-center flex-col"
+          className="sm:w-1/3 sm:h-full h-1/2 w-full flex items-center justify-center flex-col"
         >
-          <img src={balatroCard} className="w-44 ml-12"></img>
+          <motion.img
+            initial="idle"
+            animate={isAnimating ? "animate" : "idle"}
+            whileHover="hover"
+            variants={imageVariants}
+          transition={{duration:0.05}}
+          src={balatroCard} className="sm:w-44 w-1/4 sm:ml-12"></motion.img>
           <div>
             <div className=" rounded-md">
               <AnimatePresence>
@@ -156,7 +200,7 @@ const ChatPage = () => {
         <motion.div
           initial={{ y: 500 }}
           animate={{ y: 0 }}
-          className="w-1/3 bg-slate-600 h-5/6 border-[4px] border-slate-300 flex flex-col items-center rounded-lg justify-between overflow-y-auto pt-2"
+          className="sm:w-1/3 w-full bg-slate-600 sm:h-5/6 h-1/2 border-[4px] border-slate-300 flex flex-col items-center rounded-lg justify-between overflow-y-auto pt-2"
         >
           <div className="h-1/6 w-auto">
             <WelcomeSign></WelcomeSign>
@@ -165,13 +209,13 @@ const ChatPage = () => {
             <div className="w-full text-xl grid grid-col-1 grid-rows-2 gap-2 rounded-lg">
               <div className="bg-slate-400 h-full w-auto flex flex-row justify-around items-center rounded-lg">
                 <span>Modelo:</span>
-                <span className="bg-slate-800 text-blue-500 p-2 w-1/3 flex items-center justify-center rounded-lg">
+                <span className="bg-slate-800 text-blue-500 sm:p-2 p-1 w-1/3 flex items-center justify-center rounded-lg">
                   GPT-4o
                 </span>
               </div>
               <div className="bg-slate-400 h-full w-auto flex flex-row justify-around items-center rounded-lg">
                 <span>Conciencia:</span>
-                <span className="bg-slate-800 text-red-500 p-2 w-1/3 flex items-center justify-center rounded-lg">
+                <span className="bg-slate-800 text-red-500 sm:p-2 p-1 w-1/3 flex items-center justify-center rounded-lg">
                   Ivo Garraza
                 </span>
               </div>
@@ -180,35 +224,37 @@ const ChatPage = () => {
               <div className=" row-span-full grid grid-cols-1 grid-rows-4 gap-2">
                 <div className="row-span-1 flex flex-row justify-around items-center bg-slate-400 rounded-lg">
                   Latencia:
-                  <span className="bg-slate-800 w-1/3 flex items-center justify-center p-2 rounded-lg text-yellow-400">
+                  <span className="bg-slate-800 w-1/3 flex items-center justify-center sm:p-2 p-1 rounded-lg text-yellow-400">
                     1.05s
                   </span>
                 </div>
                 <div className="row-span-1 flex flex-row justify-around items-center bg-slate-400 rounded-lg">
-                  Latencia:
-                  <span className="bg-slate-800 w-1/3 flex items-center justify-center p-2 rounded-lg">
-                    1.05s
+                  Modo Seguro:
+                  <span className="bg-slate-800 w-1/3 flex items-center justify-center sm:p-2 p-1 rounded-lg text-green-500">
+                    Activado
                   </span>
                 </div>
                 <div className="row-span-1 flex flex-row justify-around items-center bg-slate-400 rounded-lg">
-                  Latencia:
-                  <span className="bg-slate-800 w-1/3 flex items-center justify-center p-2 rounded-lg">
-                    1.05s
+                  Retrato:
+                  <span className="bg-slate-800 w-2/5 flex items-center justify-center sm:p-2 p-1 rounded-lg text-blue-500">
+                    DALL·E 3
                   </span>
                 </div>
-                <div className="row-span-1 flex flex-row justify-around items-center bg-slate-400 rounded-lg">
+                <div className="row-span-1 flex flex-row justify-around items-center  rounded-lg">
                   Inspirado en:
-                  <span className="bg-slate-800 w-1/3 flex items-center justify-center p-2 rounded-lg">
-                    Balatro
-                  </span>
+                  <a className="w-1/3" href="https://www.playbalatro.com/" target="_blank">
+                    <img src={balatroLogo} className=""></img>
+                  </a>
                 </div>
               </div>
               <div className="row-span-full grid-cols-1 grid grid-rows-4 gap-2">
                 <div className="row-span-1 text-xl flex flex-row justify-around items-center bg-slate-400 rounded-lg">
                   Idioma:
-                  <span className="bg-slate-800 w-1/3 flex items-center justify-center p-2 rounded-lg text-yellow-400"><span className="">ES</span> / <span className="">EN</span></span>
+                  <span className="bg-slate-800 w-1/3 flex items-center justify-center sm:p-2 p-1 rounded-lg text-yellow-400">
+                    <span className="">ES</span> / <span className="">EN</span>
+                  </span>
                 </div>
-                <div className="row-span-3 grid grid-cols-1 grid-rows-3 pb-2 px-2 bg-slate-400 rounded-lg">
+                <div className="row-span-3 grid grid-cols-1 grid-rows-3 pb-2 sm:px-2 px-3 bg-slate-400 rounded-lg">
                   <div className="row-span-1 text-3xl flex items-center justify-center">
                     Proveedor:
                   </div>
@@ -223,10 +269,10 @@ const ChatPage = () => {
           <div className="h-1/6"></div>
           <form
             onSubmit={handleSubmit}
-            className="h-1/6 w-full pl-2 flex flex-row justify-around bottom-0"
+            className="h-1/6 w-full p-4 flex flex-row justify-around bottom-0"
           >
             <input
-              className="w-4/5 my-2 mx-2 px-4 rounded-md"
+              className="w-4/5 sm:my-2 mx-2 px-4 rounded-md"
               placeholder="Escribe un mensaje..."
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
@@ -234,8 +280,10 @@ const ChatPage = () => {
             <button
               onClick={() => TapSound()}
               type="submit"
-              className="group w-9 h-9 bg-white fill-white border-[2px] hover:border-verde border-negro hover:bg-negro transition flex items-center justify-center rounded-md my-2 mr-4"
-            ></button>
+              className="group px-4 h-12 bg-green-500 text-white border-[2px] hover:border-verde border-negro hover:bg-negro transition flex items-center justify-center rounded-md sm:my-2 sm:mr-4"
+            >
+              ENVIAR
+            </button>
           </form>
         </motion.div>
       </div>
