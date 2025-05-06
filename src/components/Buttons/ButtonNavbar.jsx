@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const ButtonNavbar = ({text, set}) => {
+export const ButtonNavbar = ({text}) => {
   return (
-    <section className="place-content-center relative h-full overflow-hidden text-white" >
+    <section 
+    
+    className="place-content-center relative h-full overflow-hidden text-white" >
       <FlipLink>{text}</FlipLink>
       {/* <div className="absolute bottom-0 w-full h-[2px] bg-white"></div> */}
     </section>
@@ -22,6 +24,7 @@ const FlipLink = ({ children, href }) => {
       style={{
         lineHeight: 3,
       }}
+      
     >
         
       <div>

@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import { createPortal } from "react-dom";
 import ChatbotModal from "./ChatbotModal";
 import { Link } from "react-router-dom";
+import background from "./../assets/covers/videoplayback.mp4";
+import { playBackgroundMusic } from "../utils/utils";
 
 const Discord = ({ section }) => {
   const [t, i18n] = useTranslation("global");
@@ -19,35 +21,24 @@ const Discord = ({ section }) => {
 
   return (
     <Link to="/chat">
-    <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: ["all", "contact"].includes(section) ? 1 : 0.1 }}
-      className="w-full h-full bg-[#390ca3f0] flex flex-col rounded-xl items-center justify-center relative"
-      onClick={() => setOpenBot(true)}
-    >
-      {/* Renderiza el modal usando createPortal */}
-      {createPortal(
-        <AnimatePresence>
-          {openBot && (
-            <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-            onClick={handleCloseModal} // Cierra el modal al hacer clic fuera
-          >
-            <div
-              /* className="bg-white p-6 rounded-lg shadow-lg" */
-              onClick={(e) => e.stopPropagation()} // Evita que el modal se cierre al hacer clic dentro
-            >
-              <ChatbotModal onClose={handleCloseModal} />
-            </div>
-          </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body // Renderiza el modal directamente en el body
-      )}
-    </motion.div>
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: ["all", "contact"].includes(section) ? 1 : 0.1 }}
+        whileHover={{scale:1.02}}
+        className="w-full h-full text-4xl text-center flex flex-col rounded-xl items-center justify-center relative overflow-hidden"
+        onClick={() => playBackgroundMusic()}
+      >
+        {/* Renderiza el modal usando createPortal */}
+        <video
+          src={background}
+          autoPlay
+          muted
+          loop
+          className="absolute inset-0 w-full h-full object-cover"
+        ></video>
+        <span className="text-white z-10 font-retro ">Habla con<br/> mi I.A.</span>
+        <span className="bg-green-400 z-10 text-white font-retro p-4 rounded-lg ">CHATEAR</span>
+      </motion.div>
     </Link>
   );
 };

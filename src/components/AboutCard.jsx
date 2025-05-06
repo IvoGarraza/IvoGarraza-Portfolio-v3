@@ -14,6 +14,7 @@ const AboutCard = ({ section }) => {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: ["all", "about"].includes(section) ? 1 : 0.2 }}
+      whileHover={{scale:1.02}}
       className="group p-6 overflow-hidden bg-purple-800 w-full h-full rounded-xl relative"
     >
       <div className={`${styles.water} absolute w-full h-full`}></div>
@@ -46,7 +47,7 @@ const AboutCard = ({ section }) => {
           <span className="text-black font-semibold text-center">{t("info")}</span>
         </div>
       </div>
-{/*       <div
+      <div
         onMouseLeave={() => setOpen(false)}
         onMouseEnter={() => setOpen(true)}
         className={` ${
@@ -54,7 +55,7 @@ const AboutCard = ({ section }) => {
         } text-white bg-slate-500 absolute bottom-10 left-24 px-4 py-2 rounded-md`}
       >
         
-      </div> */}
+      </div>
     </motion.div>
   );
 };

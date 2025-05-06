@@ -1,0 +1,52 @@
+@keyframes light {
+    0%,100%{
+        background-color: darkgoldenrod;
+    }
+    25%{
+        background-color: rgb(245, 202, 94);
+        box-shadow: 2px 2px 23px -8px rgba(255,255,255,1);
+        -webkit-box-shadow: 2px 2px 23px -8px rgba(255,255,255,1);
+        -moz-box-shadow: 2px 2px 23px -8px rgba(255,255,255,1);
+    }
+    50%{
+        background-color: rgb(244, 231, 200);
+        box-shadow: 2px 2px 23px 3px rgba(255,255,255,1);
+        -webkit-box-shadow: 2px 2px 23px -1px rgba(255,255,255,1);
+        -moz-box-shadow: 2px 2px 23px -1px rgba(255,255,255,1);
+    }
+    75%{
+        background-color: rgb(255, 255, 255);
+        box-shadow: 2px -1px 18px 7px rgba(255,255,255,0.75);
+        -webkit-box-shadow: 2px -1px 18px 7px rgba(255,255,255,0.75);
+        -moz-box-shadow: 2px -1px 18px 7px rgba(255,255,255,0.75);
+    }
+}
+
+/* #welcome::before{
+    content: ' ';
+    background-color: black;
+    width: 1000px;
+    height: 4px;
+    position: absolute;
+} */
+
+#welcome::before{
+    content: 'CHATEA';
+    position: absolute;
+    color: #facc15;
+    width: 85%;
+}
+
+#light1{
+    animation: light 2s steps(1) infinite;
+}
+
+#light2{
+    animation: light 2s 0.5s steps(1) infinite;
+}
+#light3{
+    animation: light 2s 1s steps(1) infinite;
+}
+#light4{
+    animation: light 2s 1.5s steps(1) infinite;
+}

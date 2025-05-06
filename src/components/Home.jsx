@@ -26,7 +26,8 @@ import NavbarDos from "./NavbarDos";
 import { useFullscreen } from "../hooks/hooks";
 import EnterFullscreen from "../assets/svg/fullscreen/EnterFullscreen";
 import ExitFullscreen from "../assets/svg/fullscreen/ExitFullscreen";
-import {VelocityText} from "../components/dinamic-bar/DynamicBar.jsx"
+import { VelocityText } from "../components/dinamic-bar/DynamicBar.jsx";
+import BotHome from "../assets/svg/bot/BotHome.jsx";
 
 const Home = () => {
   const [activo, setActivo] = useState(true);
@@ -34,12 +35,19 @@ const Home = () => {
   const [description, setDescription] = useState(""); // Estado para la descripción del Assistant
 
   const handleMouseEnter = (componentDescription) => {
-    setDescription(componentDescription || ""); // Usa el nombre del componente para buscar la descripción
+    console.log("logeo del handlemouseenter1:", description);
+    setDescription(componentDescription);
+    // Usa el nombre del componente para buscar la descripción
   };
 
   const handleMouseLeave = () => {
+    console.log("logeo del handlemouseenter2:", description);
     setDescription("");
   };
+
+  useEffect(() => {
+    console.log("description cambió:", description);
+  }, [description]);
 
   const renderComponent = (componentName, section) => {
     switch (componentName) {
@@ -85,22 +93,18 @@ const Home = () => {
         return null;
     }
   };
-  console.log("logeooo del section", section);
 
   const { isFullscreen, toggleFullscreen } = useFullscreen(); // hook para poner en pantalla completa
 
   return (
     <I18nextProvider i18n={i18next}>
       <Navbar setSection={setSection} section={section}></Navbar>
-      {/* <NavbarDos setSection={setSection} section={section}></NavbarDos> */}
-      {/*  <div className="bg-noise fill-black font-montserrat"> */}
       <div className="fixed font-retro w-full h-[100vh] opacity-[.04] pointer-events-none bg-noise z-50"></div>
       <div
         className={`w-full h-full ${
           activo ? "bg-[#090a13f2]" : "bg-slate-50"
         } transition-all  pt-8 pb-24 sm:px-24 px-4`}
       >
-      {/* <VelocityText></VelocityText> */}
         <div className="grid sm:auto-rows-[224px] auto-rows-[136px] sm:grid-cols-4 grid-cols-2 gap-4">
           {componentsToRender.map((component, i) => (
             <motion.div
@@ -109,8 +113,8 @@ const Home = () => {
               initial={{ opacity: 0, scale: 1 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.1 }}
-              onMouseEnter={() => handleMouseEnter(component.description)}
-              onMouseLeave={() => handleMouseLeave()}
+              onHoverStart={() => handleMouseEnter(component.description)}
+              onHoverEnd={() => handleMouseLeave()}
               key={i}
               className={`sm:row-span-1 rounded-xl overflow-hidden bg-gray-200 ${
                 i == 1
@@ -133,19 +137,21 @@ const Home = () => {
           ))}
         </div>
         <div
-          className="sm:flex hidden fixed w-10 h-10 left-2 top-2"
+          className="sm:flex hidden fixed w-8 h-10 left-2 top-2 cursor-pointer"
           onClick={() => {
             toggleFullscreen();
             LoopMusic();
           }}
         >
-          {/* <div className="w-full h-screen fixed "></div> */}
           {isFullscreen ? (
             <ExitFullscreen></ExitFullscreen>
           ) : (
             <EnterFullscreen></EnterFullscreen>
           )}
         </div>
+{/*         <div className="fixed w-full h-screen z-50 flex">
+          <BotHome descripcion={description}></BotHome>
+        </div> */}
       </div>
     </I18nextProvider>
   );

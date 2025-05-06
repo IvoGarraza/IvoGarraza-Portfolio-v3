@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ButtonNavbar } from "./Buttons/ButtonNavbar";
+import BotHome from "../assets/svg/bot/BotHome";
 
-const Navbar = ({setSection, section}) => {
-  const [t,i18n ] = useTranslation("global");
+const Navbar = ({ setSection, section }) => {
+  const [t, i18n] = useTranslation("global");
   const [showNavbar, setShowNavbar] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleSectionChange = (newSection) => {
+    console.log("Cambiando a sección:", newSection);
+    setSection(newSection);
+  };
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY && window.scrollY > 100) {
@@ -18,7 +24,6 @@ const Navbar = ({setSection, section}) => {
     setLastScrollY(window.scrollY);
   };
 
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -28,31 +33,26 @@ const Navbar = ({setSection, section}) => {
 
   return (
     <div className="py-6 fixed bottom-0 z-30 w-full">
-      <nav className={`flex w-full justify-center transition-all duration-1000 ${showNavbar ? "translate-y-24" : "-translate-y-0"}`}>
+      {/* <BotHome></BotHome> */}
+      <nav
+        className={`flex w-full justify-center transition-all duration-1000 ${
+          showNavbar ? "translate-y-24" : "-translate-y-0"
+        }`}
+      >
         <div className="flex items-center justify-center rounded-full bg-gray-900 text-white font-semibold py-1 px-4 space-x-4 focus:outline-none relative">
-          {/* <span className="absolute bg-orange-500 w-20 h-10 rounded-3xl"></span> */}{/*left-2/3   left-6      right-5*/}
-{/*           <button
-            className={`hover:bg-gray-800 ${section=='all'?'bg-secundario':''} rounded-full hover:rounded-3xl p-2 dark:hover:bg-gray-600 focus:outline-none z-10`}
-            onClick={() => setSection('all')}
-          >
-            {t('navbar.home')}
-          </button>
-          <button
-            className={`hover:bg-gray-100 ${section=='about'?'bg-secundario':''} rounded-full hover:rounded-3xl p-2 dark:hover:bg-gray-600 focus:outline-none z-10`}
-            onClick={() => setSection('about')}
-          >
-            {t('navbar.about')}
-          </button>
-          <button
-            className={`hover:bg-gray-100 ${section=='contact'?'bg-secundario':''} rounded-full hover:rounded-3xl p-2 dark:hover:bg-gray-600 focus:outline-none z-10`}
-            onClick={() => setSection('contact')}
-            id="Contact"
-          >
-            {t('navbar.contact')}
-          </button> */}
-          <ButtonNavbar text={`${t('navbar.home')}`} ></ButtonNavbar>
-          <ButtonNavbar text={`${t('navbar.about')}`} ></ButtonNavbar>
-          <ButtonNavbar text={`${t('navbar.contact')}`}></ButtonNavbar>
+          <a onClick={() => setSection("all")} className="cursor-pointer">
+            <ButtonNavbar text={`${t("navbar.home")}`}></ButtonNavbar>
+          </a>
+          <a onClick={() => setSection("about")} className="cursor-pointer">
+            <ButtonNavbar
+              text={`${t("navbar.about")}`}
+            ></ButtonNavbar>
+          </a>
+          <a onClick={() => setSection("contact")} className="cursor-pointer">
+            <ButtonNavbar
+              text={`${t("navbar.contact")}`}
+            ></ButtonNavbar>
+          </a>
         </div>
       </nav>
     </div>
