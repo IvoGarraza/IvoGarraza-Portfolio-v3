@@ -26,11 +26,6 @@ const ChatPage = () => {
   const [mensajito, setMensajito] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
   const animationTimeoutRef = useRef(null); // Para limpiar los timeouts
-  const mensajes = [
-    { role: "system", content: "Soy un modelo de inteligencia artificial" },
-    { role: "user", content: "Que puede hacer?" },
-  ];
-
   const systemPromtp = `
   Actua como Ivo Garraza, desarrollador fullstack, con especialidad en Front-end. 
   Tu enfoque principal es crear aplicaciones web escalables con tecnologías modernas.
@@ -40,7 +35,7 @@ const ChatPage = () => {
   - Ubicación: Córdoba capital, Argentina
   - Años de experiencia: 2
   - Tecnologías principales: React, Node.js, Next.js, TailwindCSS, Framer Motion, Angular, .NET, Python y SQL
-  - Proyecto destacado: "Digital Makers", web construida con Next.js, React, Framer motion, TailwindCSS y integrado con un chatbot inteligente
+  - Proyecto destacado: "Digital Makers", web construida con Next.js, React, Framer motion, TailwindCSS y integrado con un chatbot con IA
   - Contacto: ivogarraza@gmail.com | LinkedIn: www.linkedin.com/in/ivogarraza/
 
   Reglas:
@@ -65,8 +60,8 @@ const ChatPage = () => {
         "https://openrouter.ai/api/v1/chat/completions",
         {
           /* model: "deepseek-r1-distill-llama-70b", */
-          model: "openai/gpt-4o",
-          max_tokens: 100,
+          model: "deepseek/deepseek-chat-v3-0324:free",
+          max_tokens: 50,
           messages: [
             {
               role: "system",
@@ -77,7 +72,7 @@ const ChatPage = () => {
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer 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`,
             "Content-Type": "application/json",
           },
         }
@@ -198,43 +193,60 @@ const ChatPage = () => {
               className="sm:w-44 w-full sm:ml-0 ml-2 sm:mb-0 -mb-10"
             ></motion.img>
           </div>
-          <div className="rounded-md flex items-center justify-center w-3/4 h-full">
-  <AnimatePresence>
-    {messages.length > 0 && messages.some(msg => msg.role === "assistant") ? (
-      messages.map(
-        (msg, index) =>
-          msg.role === "assistant" && (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              className="bg-white text-black rounded-xl w-full max-w-xs p-3 mt-2 text-center mx-auto"
-            >
-              {msg.content}
-            </motion.div>
-          )
-      )
-    ) : (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="bg-transparent text-white rounded-xl w-full max-w-xs p-4 text-center mx-auto"
-      >
-        <div className="flex flex-col items-center gap-2">
-
-          <p>Envía un mensaje para comenzar a chatear</p>
-          <p className="text-xs text-slate-300 mt-1">Escribe tu pregunta y presiona ENVIAR</p>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</div>
+          <div className="rounded-md flex items-center justify-center w-3/4 h-auto">
+            <AnimatePresence>
+              {messages.length > 0 &&
+              messages.some((msg) => msg.role === "assistant") ? (
+                messages.map(
+                  (msg, index) =>
+                    msg.role === "assistant" && (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        className="bg-white text-black rounded-xl w-full max-w-xs p-3 mt-2 text-center mx-auto"
+                      >
+                        {msg.content}
+                      </motion.div>
+                    )
+                )
+              ) : isLoading ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-white rounded-xl w-full max-w-xs p-4 text-center mx-auto"
+                >
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="flex gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-150"></div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-300"></div>
+                    </div>
+                    <p>Procesando tu mensaje...</p>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="bg-transparent text-white rounded-xl text-2xl w-full max-w-xs p-4 text-center mx-auto"
+                >
+                  <div className="flex flex-col items-center gap-2">
+                    <p>Envía un mensaje para comenzar a chatear</p>
+                    <p className="text-lg text-slate-300 mt-1">
+                      Escribe tu pregunta y presiona ENVIAR
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </motion.div>
         <motion.div
           initial={{ y: 500 }}
           animate={{ y: 0 }}
-          className="sm:w-1/3 w-full bg-slate-600 sm:h-5/6 h-2/3 border-[4px] border-slate-300 flex flex-col items-center rounded-lg justify-between overflow-y-auto pt-2"
+          className="sm:w-1/3 w-full bg-slate-600 sm:h-5/6 h-2/3 border-[4px] border-slate-300 flex flex-col items-center rounded-lg justify-between overflow-hidden pt-2"
         >
           <div className="h-1/6 w-auto mb-4">
             <WelcomeSign></WelcomeSign>
