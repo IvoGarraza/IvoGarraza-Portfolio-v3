@@ -12,17 +12,19 @@ import {
   TapSound,
 } from "../utils/utils.jsx";
 import { Link } from "react-router-dom";
-import balatroLogo from '../assets/logos/balatro.png'
+import balatroLogo from "../assets/logos/balatro.png";
 import TvEffect from "../components/TvEffect/TvEffect.jsx";
-const API_KEY = ProcessingInstruction.enc
-
+import { useFullscreen } from "../hooks/hooks.js";
+import ExitFullscreen from "../assets/svg/fullscreen/ExitFullscreen.jsx";
+import EnterFullscreen from "../assets/svg/fullscreen/EnterFullscreen.jsx";
+const API_KEY = ProcessingInstruction.enc;
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState(""); //Estado para el input del usuario
   const [isLoading, setIsLoading] = useState(false); // Estado de carga
   const [mensajito, setMensajito] = useState("");
-  const [isAnimating, setIsAnimating] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false);
   const animationTimeoutRef = useRef(null); // Para limpiar los timeouts
   const mensajes = [
     { role: "system", content: "Soy un modelo de inteligencia artificial" },
@@ -75,7 +77,7 @@ const ChatPage = () => {
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer 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`,
             "Content-Type": "application/json",
           },
         }
@@ -105,32 +107,30 @@ const ChatPage = () => {
         return;
       }
       playVoice();
-            
+
       // Activa la animación
       setIsAnimating(true);
-      
+
       // Limpia cualquier timeout anterior
       if (animationTimeoutRef.current) {
         clearTimeout(animationTimeoutRef.current);
       }
-      
+
       // Establece un nuevo timeout para desactivar la animación
       animationTimeoutRef.current = setTimeout(() => {
         setIsAnimating(false);
       }, 80); // Duración de la animación (ms)
 
-
       i++;
     }, 100);
   };
 
-    // Variantes de animación para el motion.img
-    const imageVariants = {
-      idle: { rotate: 0, scale: 1 },
-      animate: { rotate: [-2, 2, -2], scale: [1, 1.05, 1] },
-      hover: { rotate: 5, scale: 0.9 }
-    };
-  
+  // Variantes de animación para el motion.img
+  const imageVariants = {
+    idle: { rotate: 0, scale: 1 },
+    animate: { rotate: [-2, 2, -2], scale: [1, 1.05, 1] },
+    hover: { rotate: 5, scale: 0.9 },
+  };
 
   useEffect(() => {
     const lastMessage = messages[messages.length - 1];
@@ -147,22 +147,37 @@ const ChatPage = () => {
     };
   }, []);
 
+  // hook para poner en pantalla completa
+  const { isFullscreen, toggleFullscreen } = useFullscreen();
+
   return (
     <div className="bg-noise w-full h-[100vh] relative overflow-hidden font-retro">
+      <div
+        className="sm:flex fixed sm:w-14 w-8 h-10 sm:right-10 sm:top-10 right-2 top-2 cursor-pointer"
+        onClick={() => {
+          toggleFullscreen();
+          LoopMusic();
+        }}
+      >
+        {isFullscreen ? (
+          <ExitFullscreen></ExitFullscreen>
+        ) : (
+          <EnterFullscreen></EnterFullscreen>
+        )}
+      </div>
       <TvEffect></TvEffect>
       <div className="bg-[rgba(33,75,33,0.95)] w-full h-full flex sm:items-center sm:flex-row flex-col sm:justify-center justify-center">
-        
         <Link
           to="/"
           onClick={() => TapSound()}
-          className="group top-10 sm:left-10 left-5 absolute bg-yellow-400 p-4 rounded-lg hover:translate-x-[20px] transition-all"
+          className="group sm:top-10 top-5 sm:left-10 left-5 absolute bg-yellow-400 sm:p-4 p-2 rounded-lg hover:translate-x-[20px] transition-all"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#fff"
             viewBox="0 0 22 22"
             id="memory-arrow-left-bold"
-            className="w-10 group-hover:fill-black"
+            className="sm:w-10 w-4 group-hover:fill-black"
           >
             <path d="M12 20H10V19H9V18H8V17H7V16H6V15H5V14H4V13H3V12H2V10H3V9H4V8H5V7H6V6H7V5H8V4H9V3H10V2H12V7H20V15H12V20M10 16V13H18V9H10V6H9V7H8V8H7V9H6V10H5V12H6V13H7V14H8V15H9V16H10Z" />
           </svg>
@@ -170,39 +185,58 @@ const ChatPage = () => {
         <motion.div
           initial={{ y: -500 }}
           animate={{ y: 0 }}
-          className="sm:w-1/3 sm:h-full h-1/2 w-full flex items-center justify-center flex-col"
+          className="sm:w-1/3 sm:h-full h-1/3 w-full flex items-center sm:justify-center justify-around sm:flex-col flex-row"
         >
-          <motion.img
-            initial="idle"
-            animate={isAnimating ? "animate" : "idle"}
-            whileHover="hover"
-            variants={imageVariants}
-          transition={{duration:0.05}}
-          src={balatroCard} className="sm:w-44 w-1/4 sm:ml-12"></motion.img>
-          <div>
-            <div className=" rounded-md">
-              <AnimatePresence>
-                {messages.map((msg, index) => (
-                  <motion.div key={index} className={`w-full flex flex-row`}>
-                    <div
-                      className={`${
-                        msg.role == "user" ? "hidden" : "bg-white text-black"
-                      } rounded-xl w-fit p-2 mt-2 mr-2 text-center`}
-                    >
-                      {msg.content}
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
+          <div className="w-1/4">
+            <motion.img
+              initial="idle"
+              animate={isAnimating ? "animate" : "idle"}
+              whileHover="hover"
+              variants={imageVariants}
+              transition={{ duration: 0.05 }}
+              src={balatroCard}
+              className="sm:w-44 w-full sm:ml-0 ml-2 sm:mb-0 -mb-10"
+            ></motion.img>
           </div>
+          <div className="rounded-md flex items-center justify-center w-3/4 h-full">
+  <AnimatePresence>
+    {messages.length > 0 && messages.some(msg => msg.role === "assistant") ? (
+      messages.map(
+        (msg, index) =>
+          msg.role === "assistant" && (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="bg-white text-black rounded-xl w-full max-w-xs p-3 mt-2 text-center mx-auto"
+            >
+              {msg.content}
+            </motion.div>
+          )
+      )
+    ) : (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="bg-transparent text-white rounded-xl w-full max-w-xs p-4 text-center mx-auto"
+      >
+        <div className="flex flex-col items-center gap-2">
+
+          <p>Envía un mensaje para comenzar a chatear</p>
+          <p className="text-xs text-slate-300 mt-1">Escribe tu pregunta y presiona ENVIAR</p>
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
         </motion.div>
         <motion.div
           initial={{ y: 500 }}
           animate={{ y: 0 }}
-          className="sm:w-1/3 w-full bg-slate-600 sm:h-5/6 h-1/2 border-[4px] border-slate-300 flex flex-col items-center rounded-lg justify-between overflow-y-auto pt-2"
+          className="sm:w-1/3 w-full bg-slate-600 sm:h-5/6 h-2/3 border-[4px] border-slate-300 flex flex-col items-center rounded-lg justify-between overflow-y-auto pt-2"
         >
-          <div className="h-1/6 w-auto">
+          <div className="h-1/6 w-auto mb-4">
             <WelcomeSign></WelcomeSign>
           </div>
           <div className="w-11/12 h-4/6  bg-slate-800 rounded-lg text-white p-2 grid grid-cols-1 grid-rows-3 gap-2">
@@ -242,7 +276,11 @@ const ChatPage = () => {
                 </div>
                 <div className="row-span-1 flex flex-row justify-around items-center  rounded-lg">
                   Inspirado en:
-                  <a className="w-1/3" href="https://www.playbalatro.com/" target="_blank">
+                  <a
+                    className="w-1/3"
+                    href="https://www.playbalatro.com/"
+                    target="_blank"
+                  >
                     <img src={balatroLogo} className=""></img>
                   </a>
                 </div>

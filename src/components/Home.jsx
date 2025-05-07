@@ -137,7 +137,7 @@ const Home = () => {
           ))}
         </div>
         <div
-          className="sm:flex hidden fixed w-8 h-10 left-2 top-2 cursor-pointer"
+          className="sm:flex fixed w-8 h-10 left-2 top-2 cursor-pointer"
           onClick={() => {
             toggleFullscreen();
             LoopMusic();
