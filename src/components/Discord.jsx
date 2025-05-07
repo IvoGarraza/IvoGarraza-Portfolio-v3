@@ -40,11 +40,11 @@ const Discord = ({ section }) => {
           loop
           className="absolute inset-0 w-full h-full object-cover"
         ></video>
-        <span className="text-white z-10 font-retro mt-4">
+        <span className="text-white z-10 font-retro sm:mt-4 mt-2 text-lg">
           Habla con
           <br /> mi I.A.
         </span>
-        <div className=" z-10 w-1/2 h-1/4 mt-4 relative text-xl text-white font-retro">
+        <div className=" z-10 sm:w-1/2 w-1/2 h-1/4 sm:mt-4 relative sm:text-xl text-xs text-white font-retro">
           <div
             className={`bg-green-400 w-full active:translate-x-1 active:translate-y-1 transition-all absolute h-full flex items-center justify-center rounded-md z-[1]`}
           >
