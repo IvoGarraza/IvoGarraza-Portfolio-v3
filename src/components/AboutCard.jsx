@@ -33,7 +33,7 @@ const AboutCard = ({ section }) => {
       </div>
       <img
         src={me}
-        className="group-hover:w-[63%]  w-[60%] absolute transition-all sm:-top-10 sm:-right-44 -right-12 top-24"
+        className="group-hover:w-[63%]  w-[60%] absolute transition-all sm:bottom-0 bottom-0 sm:-right-44 -right-12"
       ></img>
       <div className="absolute flex flex-row items-start justify-start sm:top-96 sm:left-6 top-4 right-4">
         <InformationCircleIcon

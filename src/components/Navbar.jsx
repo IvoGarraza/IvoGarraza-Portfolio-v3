@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ButtonNavbar } from "./Buttons/ButtonNavbar";
 import BotHome from "../assets/svg/bot/BotHome";
+import Loader from "./loader/Loader";
 
 const Navbar = ({ setSection, section }) => {
   const [t, i18n] = useTranslation("global");
@@ -33,7 +34,7 @@ const Navbar = ({ setSection, section }) => {
 
   return (
     <div className="py-6 fixed bottom-0 z-30 w-full">
-      {/* <BotHome></BotHome> */}
+      <Loader/>
       <nav
         className={`flex w-full justify-center transition-all duration-1000 ${
           showNavbar ? "translate-y-24" : "-translate-y-0"

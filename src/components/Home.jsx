@@ -149,9 +149,6 @@ const Home = () => {
             <EnterFullscreen></EnterFullscreen>
           )}
         </div>
-{/*         <div className="fixed w-full h-screen z-50 flex">
-          <BotHome descripcion={description}></BotHome>
-        </div> */}
       </div>
     </I18nextProvider>
   );

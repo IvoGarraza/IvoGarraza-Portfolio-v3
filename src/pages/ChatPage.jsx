@@ -59,7 +59,6 @@ const ChatPage = () => {
       const response = await axios.post(
         "https://openrouter.ai/api/v1/chat/completions",
         {
-          /* model: "deepseek-r1-distill-llama-70b", */
           model: "deepseek/deepseek-chat-v3-0324:free",
           max_tokens: 50,
           messages: [
@@ -72,7 +71,7 @@ const ChatPage = () => {
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer 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`,
             "Content-Type": "application/json",
           },
         }
