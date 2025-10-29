@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import ProjectPage from "./pages/ProjectPage";
 import ChatPage from "./pages/ChatPage"
+import Chat from "./pages/Chat"
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 import global_en from "./languages/en/global.json";
@@ -26,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/projects" element={<ProjectPage />}></Route>
-        <Route path="/chat" element={<ChatPage/>}></Route>
+        <Route path="/chat" element={<Chat/>}></Route>
       </Routes>
     </I18nextProvider>
   );

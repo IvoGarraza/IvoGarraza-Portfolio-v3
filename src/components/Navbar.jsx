@@ -34,7 +34,7 @@ const Navbar = ({ setSection, section }) => {
 
   return (
     <div className="py-6 fixed bottom-0 z-30 w-full">
-      <Loader/>
+      {/* <Loader/> */}
       <nav
         className={`flex w-full justify-center transition-all duration-1000 ${
           showNavbar ? "translate-y-24" : "-translate-y-0"

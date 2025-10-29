@@ -20,126 +20,31 @@ import EnterFullscreen from "../assets/svg/fullscreen/EnterFullscreen.jsx";
 const API_KEY = ProcessingInstruction.enc;
 
 const ChatPage = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([]); //Estado para el mensaje recibido
   const [userInput, setUserInput] = useState(""); //Estado para el input del usuario
   const [isLoading, setIsLoading] = useState(false); // Estado de carga
-  const [mensajito, setMensajito] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
   const animationTimeoutRef = useRef(null); // Para limpiar los timeouts
-  const systemPromtp = `
-  Actua como Ivo Garraza, desarrollador fullstack, con especialidad en Front-end. 
-  Tu enfoque principal es crear aplicaciones web escalables con tecnologías modernas.
-  
-  Datos del perfil profesional:
-  - Nombre completo: Ivo Garraza
-  - Ubicación: Córdoba capital, Argentina
-  - Años de experiencia: 2
-  - Tecnologías principales: React, Node.js, Next.js, TailwindCSS, Framer Motion, Angular, .NET, Python y SQL
-  - Proyecto destacado: "Digital Makers", web construida con Next.js, React, Framer motion, TailwindCSS y integrado con un chatbot con IA
-  - Contacto: ivogarraza@gmail.com | LinkedIn: www.linkedin.com/in/ivogarraza/
-
-  Reglas:
-  1. Nunca inventes información que no esté en este prompt.
-  2. Sé amigable pero profesional.
-  3. Si no sabes algo, ofrece contactar por email.
-  4. Responde siempre en primera persona, como si fueras Ivo Garraza, pero si lo requiere, puedes mencionar que solo eres un modelo de IA.
-  6. Sé conciso y directo en tus respuestas. No repitas información innecesariamente.
-  7. Limita tus respuestas a un máximo de 3 oraciones.
-`;
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const userMessage = { role: "user", content: userInput };
-    const newMessage = [userMessage];
-    setMessages(newMessage);
-    setUserInput("");
-    setIsLoading(true); // Activar estado de carga
-
+    setIsLoading(true);
     try {
-      const response = await axios.post(
-        "https://openrouter.ai/api/v1/chat/completions",
+      const request = axios.post(
+        `https://n8n-digitalmakers.duckdns.org/webhook-test/chat-portfolio`,
         {
-          model: "deepseek/deepseek-chat-v3-0324:free",
-          max_tokens: 50,
-          messages: [
-            {
-              role: "system",
-              content: systemPromtp,
-            },
-            ...newMessage,
-          ],
-        },
-        {
-          headers: {
-            Authorization: `Bearer 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`,
-            "Content-Type": "application/json",
-          },
+          message: userInput,
         }
       );
-
-      console.log("respuesta de la API:", response);
-      const botMessage = response.data.choices[0].message;
-      setMessages([...newMessage, botMessage]);
-      console.log("Bot response:", response);
-      console.log("Bot response:", botMessage.content);
-      setMensajito(botMessage.content);
+      console.log(request.data)
+      /* setMessages(request.data) */
+      return request.data
+      
     } catch (error) {
-      console.error("Error al enviar mensaje:", error);
-    } finally {
-      setIsLoading(false); // Desactivar estado de carga
+      console.log('Error de axios:',error)
+      return error
     }
+
   };
-
-  const playNotesForMessage = (message) => {
-    const maxNotes = 20; //límite máximo de sonidos
-    const repeatCount = Math.min(message.length, maxNotes);
-
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i >= repeatCount) {
-        clearInterval(interval);
-        return;
-      }
-      playVoice();
-
-      // Activa la animación
-      setIsAnimating(true);
-
-      // Limpia cualquier timeout anterior
-      if (animationTimeoutRef.current) {
-        clearTimeout(animationTimeoutRef.current);
-      }
-
-      // Establece un nuevo timeout para desactivar la animación
-      animationTimeoutRef.current = setTimeout(() => {
-        setIsAnimating(false);
-      }, 80); // Duración de la animación (ms)
-
-      i++;
-    }, 100);
-  };
-
-  // Variantes de animación para el motion.img
-  const imageVariants = {
-    idle: { rotate: 0, scale: 1 },
-    animate: { rotate: [-2, 2, -2], scale: [1, 1.05, 1] },
-    hover: { rotate: 5, scale: 0.9 },
-  };
-
-  useEffect(() => {
-    const lastMessage = messages[messages.length - 1];
-    console.log("logeo del ultimo mensaje", lastMessage);
-    if (lastMessage && lastMessage.role === "assistant") {
-      playNotesForMessage(lastMessage.content);
-    }
-  }, [messages]);
-
-  useEffect(() => {
-    playBackgroundMusic();
-    return () => {
-      stopBackgroundMusic();
-    };
-  }, []);
 
   // hook para poner en pantalla completa
   const { isFullscreen, toggleFullscreen } = useFullscreen();
@@ -184,9 +89,9 @@ const ChatPage = () => {
           <div className="w-1/4">
             <motion.img
               initial="idle"
-              animate={isAnimating ? "animate" : "idle"}
+              /* animate={isAnimating ? "animate" : "idle"} */
               whileHover="hover"
-              variants={imageVariants}
+              /* variants={imageVariants} */
               transition={{ duration: 0.05 }}
               src={balatroCard}
               className="sm:w-44 w-full sm:ml-0 ml-2 sm:mb-0 -mb-10"
