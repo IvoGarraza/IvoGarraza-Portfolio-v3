@@ -7,23 +7,25 @@ const Chat = () => {
   const [userInput, setUserInput] = useState(""); //Estado para el mensaje del usuario
 
   const handleSubmit = async (e) => {
+    console.log("Se activo el submit");
     e.preventDefault();
     setLoading(true);
     try {
-      const request = await axios.post('https://n8n-digitalmakers.duckdns.org/webhook/chat-portfolio',
+      const request = await axios.post(
+        "https://n8n-digitalmakers.duckdns.org/webhook-test/chat-portfolio",
         {
-          message: userInput
+          message: userInput,
         }
       );
+      console.log(request.data.content);
       setMessage(request.data.content);
       setLoading(false);
       return request.data.content;
-
     } catch (error) {
       console.error("Error al enviar el mensaje:", error);
       return error;
-    }
-  }
+    } // Lógica para manejar el envío del mensaje
+  };
 
   return (
     <div className="flex flex-col items-center justify-between w-full h-screen bg-slate-800">
@@ -32,7 +34,7 @@ const Chat = () => {
       </div>
       <div className="w-1/2 h-full bg-slate-200 flex items-center justify-center">
         <span className="bg-purple-400 p-1 rounded-md">
-          {loading ? "Cargando...": message}
+          {loading ? "Cargando..." : message}
         </span>
       </div>
       <form

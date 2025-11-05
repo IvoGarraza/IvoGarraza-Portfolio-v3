@@ -30,7 +30,7 @@ const ChatPage = () => {
     setIsLoading(true);
     try {
       const request = axios.post(
-        `https://n8n-digitalmakers.duckdns.org/webhook-test/chat-portfolio`,
+        `https://n8n-digitalmakers.duckdns.org/webhook/chat-portfolio`,
         {
           message: userInput,
         }
