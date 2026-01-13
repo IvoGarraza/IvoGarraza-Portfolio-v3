@@ -21,9 +21,33 @@ import StatsChat from "../components/ChatPage/StatsChat.jsx";
 const API_KEY = ProcessingInstruction.enc;
 
 const ChatPage = () => {
-  const [messages, setMessages] = useState('Mi nombre s IVo Garraza, soy desarrollador web fullstack con 3 años de experiencia, me destaco en tecnologias como React,tailwindcss y framer motion. Podes contactarme para mas informacion'); //Estado para mensaje del bot
+  const [messages, setMessages] = useState([]); //Estado para el mensaje recibido
+  const [userInput, setUserInput] = useState(""); //Estado para el input del usuario
   const [isLoading, setIsLoading] = useState(false); // Estado de carga
+  const [isAnimating, setIsAnimating] = useState(false);
+  const animationTimeoutRef = useRef(null); // Para limpiar los timeouts
 
+  const handleSubmit = async (e) => {
+    setIsLoading(true);
+    try {
+      const request = axios.post(
+        `https://n8n-digitalmakers.duckdns.org/webhook/chat-portfolio`,
+        {
+          message: userInput,
+        }
+      );
+      console.log(request.data)
+      /* setMessages(request.data) */
+      return request.data
+      
+    } catch (error) {
+      console.log('Error de axios:',error)
+      return error
+    }
+
+  };
+
+  // hook para poner en pantalla completa
   const { isFullscreen, toggleFullscreen } = useFullscreen();
 
   return (

@@ -31,6 +31,8 @@ export const TapSound = () => {
     sound.play()
 };
 
+
+
 let audio = null
 export const playBackgroundMusic = () => {
   if (!audio) {
@@ -69,5 +71,7 @@ const LoopMusic = () => {
 
   return null; // No renderiza nada en pantalla
 };
+
+
 
 export default LoopMusic

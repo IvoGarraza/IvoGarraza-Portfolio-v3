@@ -1,0 +1,111 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.book-one{
+    width: 20px;
+    height: 60px;
+    background: #8b4513;
+    border: 2px solid #5a2d0c;
+    border-radius: 4px;
+    position: relative;
+    margin: 0 5px;
+    animation: float 1.5s infinite ease-in-out;
+}
+
+.book-one .circle-one{
+    position: absolute;
+    top: 5%;
+    right: 30%;
+    width: 6px;
+    height: 6px;
+    background: #d2b48c;
+    border-radius: 100%;
+}
+
+.book-one .circle-two{
+    position: absolute;
+    bottom: 5%;
+    right: 30%;
+    width: 6px;
+    height: 6px;
+    background: #d2b48c;
+    border-radius: 100%;
+}
+
+.book-two{
+    width: 20px;
+    height: 80px;
+    background: #242a7e;
+    border-radius: 5%;
+    position: relative;
+}
+
+.book-two .line-one{
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+}
+
+.book-two .line-two{
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+}
+
+.book-two .line-three{
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+}
+
+.book-two .line-four{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+}
+
+.book-three{
+    position: relative;
+    background: #be2e2e;
+    height: 70px;
+    width: 20px;
+    margin: 0 5px;
+    border: #7a2121 1px solid;
+}
+
+.book-three .line-one{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+}
+
+.book-three .line-two{
+    position: absolute;
+    bottom:20%;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+}
+
+.book-three .circle{
+    position: absolute;
+    bottom: 5%;
+    background: #ffffff;
+    border-radius: 100%;
+    width: 6px;
+    height: 6px;
+    left: 30%;
+}
