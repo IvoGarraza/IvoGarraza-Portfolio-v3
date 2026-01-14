@@ -13,9 +13,10 @@ export const componentsToRender = [
   {name:"AboutMe",
     description: 'Esta sección trata sobre mí.',
   },
-  {name:"Discord",
-    description:'discord'
+    {name:"SwitchLanguage",
+    description:'Aquí se muestran mis proyectos más importantes.'
   },
+
   {name:"English",
     description:'Mis habilidades en inglés se muestran aquí.'
   },
@@ -52,10 +53,10 @@ export const componentsToRender = [
   {name:"Weather",
     description:'clima'
   },
-
-  {name:"SwitchLanguage",
-    description:'Aquí se muestran mis proyectos más importantes.'
+  {name:"Discord",
+    description:'discord'
   },
+
   {name:"Spotify",
     description:'musica'
   },

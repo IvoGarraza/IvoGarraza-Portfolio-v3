@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import background from "./../assets/covers/videoplayback.mp4";
 import { playBackgroundMusic } from "../utils/utils";
 import balatro from '../assets/logos/balatro.png'
+import wsp from '../assets/logos/wsp.png'
 
 const Discord = ({ section }) => {
   const [t, i18n] = useTranslation("global");
@@ -21,8 +22,8 @@ const Discord = ({ section }) => {
   };
 
   return (
-    <Link to="/chat">
-      <motion.div
+    <motion.a href="https://wa.me/+5493562408275" className=" w-full h-full">
+{/*       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: ["all", "contact"].includes(section) ? 1 : 0.1 }}
         whileHover={{ scale: 1.02 }}
@@ -52,8 +53,13 @@ const Discord = ({ section }) => {
           </div>
           <div className="bg-black w-full absolute translate-x-1 translate-y-1 h-full flex items-center justify-center rounded-md z-[0]"></div>
         </div>
-      </motion.div>
-    </Link>
+      </motion.div> */}
+      <div className="w-full h-full bg-terciario flex flex-col items-center justify-around">
+        <span className="font-bold text-center text-white">Chatea conmigo por whatsapp</span>
+        <img src={wsp} className="w-1/3 "></img>
+        <span className="bg-slate-100 rounded-full px-2 flex flex-row items-center justify-center"><div className="bg-green-400 w-2 h-2 rounded-full mr-2"></div>En Linea</span>
+      </div>
+    </motion.a>
   );
 };
 

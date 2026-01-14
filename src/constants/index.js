@@ -12,6 +12,7 @@ import broker from '../assets/cardsImages/broker.webp'
 import rick from '../assets/cardsImages/rick&morty.jpg'
 import webdev from '../assets/cardsImages/webdev.png'
 import digitalmakers from '../assets/cardsImages/digitalmakers.png'
+import gooster from '../assets/cardsImages/gooster.png'
 import {
     html,
     css,
@@ -30,6 +31,18 @@ import {
 
 export const projects = [
     {
+        id:'gooster',
+        title:"Gooster",
+        description:"Sitio web para marca de alimento balanceado",
+        tipo:"Freelance",
+        img:gooster,
+        technologies:[react,html,css,framer,tailwind],
+        time:'08/2024',
+        boton:"Ver",
+        link:'https://gooster.com.ar/',
+        repositorio:'https://github.com/IvoGarraza/digital-makers'
+    },
+    {
         id:'digitalmakers',
         title:"Digital Makers",
         description:"Sitio web para empredimiento de desarrollos web",
@@ -41,7 +54,7 @@ export const projects = [
         link:'https://digitalmakers.tech/',
         repositorio:'https://github.com/IvoGarraza/digital-makers'
     },
-    {
+/*     {
         id:'webdev',
         title:"Webdev",
         description:"Sitio web para una marca de desarrollos web",
@@ -52,7 +65,7 @@ export const projects = [
         boton:"Ver",
         link:'https://webdevarg.onrender.com/',
         repositorio:'https://github.com/IvoGarraza/webdevarg'
-    },
+    }, */
     {
         id:'andes-dean',
         title:'AndesDean Engineering Studio',
@@ -67,7 +80,7 @@ export const projects = [
         link:'https://andesdean.onrender.com',
         repositorio:'https://github.com/IvoGarraza/AndesDean-WebSite'
     },
-    {
+/*     {
         id:'tres-dimensiones',
         title:'Tres Dimensiones',
         description:'Ecommerce para ventas de productos impresos en 3D e insumos para impresoras',
@@ -89,7 +102,7 @@ export const projects = [
         img:tresdimensiones,
         boton:'Ver',
         repositorio:'https://github.com/IvoGarraza/TresDimensiones-Strapi-Render'
-    },
+    }, */
     {
         id:'camuzzi',
         title:'Sistemas de registro incidentes para Camuzzi',
@@ -181,14 +194,13 @@ export const projects = [
         tipo:"Personal",
         description:'Sitio Web simulando ser la página de un banco. Programada con React.js y usando TailwindCSS, un framework para estilos de CSS',
         img:hoobank,
-        /* avatar:foto, */
         time:'20/12/2022',
         path:'/bank',
         link:'https://extraordinary-mochi-3eb5fd.netlify.app/',
         repositorio:'https://github.com/IvoGarraza/modern_website_with_tailwind',
         boton:'Ver'
     },
-    {
+    /* {
         id:'pokemon',
         title:'Pokemon Page',
         type:'FullStack Project',
@@ -196,9 +208,7 @@ export const projects = [
         tipo:"SoyHenry",
         description:'A popular project site whit a all pokemons exist for now, this projects was realice in a bootcamp of web developer. In this project made a API REST & Front',
         img:pokemon,
-        /* avatar:foto, */
         time:'18/01/2023',
-        /* link:'https://github.com/IvoGarraza/Pokemon_Page_IndividualProyect', */
         repositorio:'https://github.com/IvoGarraza/Pokemon_Page_IndividualProyect',
         boton:'Link del Repositorio'
 
@@ -215,7 +225,7 @@ export const projects = [
         boton:'Link del repositorio',
         link:'',
         repositorio:''
-    },
+    }, */
 
 ]
 
