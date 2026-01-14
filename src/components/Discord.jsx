@@ -56,7 +56,7 @@ const Discord = ({ section }) => {
       </motion.div> */}
       <div className="w-full h-full bg-terciario flex flex-col items-center justify-around">
         <span className="font-bold text-center text-white">Chatea conmigo por whatsapp</span>
-        <img src={wsp} className="w-1/3 "></img>
+        <img src={wsp} className="w-1/4 "></img>
         <span className="bg-slate-100 rounded-full px-2 flex flex-row items-center justify-center"><div className="bg-green-400 w-2 h-2 rounded-full mr-2"></div>En Linea</span>
       </div>
     </motion.a>

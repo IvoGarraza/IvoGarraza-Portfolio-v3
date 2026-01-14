@@ -241,6 +241,11 @@ export const music = [
 
 export const certifications = [
     {
+        title:'Tec. Sup. en Ciencias de Datos e Inteligencia Artificial',
+        institucion:'Instituto Superior Politecnico de Córdoba',
+        estado:'(En curso)'
+    },
+    {
         title:'Desarrollador Web FullStack .NET',
         institucion:'Instituto Superior Politecnico de Córdoba',
         estado:'(Finalizado)'
@@ -250,9 +255,9 @@ export const certifications = [
         institucion:'SoyHenry',
         estado:'(Finalizado)'
     },
-    {
+/*     {
         title:'Ing en Sistemas de Informacion',
         institucion:'Universidad Tecnologica Nacional',
         estado:'(En curso)'
-    }
+    } */
 ]
